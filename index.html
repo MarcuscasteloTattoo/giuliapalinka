@@ -186,16 +186,30 @@ button { font: inherit; }
 .small-muted { margin-top: .75rem; font-size: .75rem; color: var(--muted-fg); }
 
 
-/* O ESPAÇO */
-.space-grid { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-.space-item { margin: 0; overflow: hidden; border-radius: .75rem; background: var(--secondary); }
-.space-item img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.space-item:nth-child(-n+2) { aspect-ratio: 3 / 4; }
-.space-item:nth-child(n+3) { grid-column: span 2; aspect-ratio: 4 / 3; }
-@media (min-width: 768px) {
-  .space-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr); grid-template-rows: auto auto; gap: 1.25rem; }
-  .space-item:nth-child(-n+2) { grid-row: span 2; aspect-ratio: auto; }
-  .space-item:nth-child(n+3) { grid-column: 3; aspect-ratio: 4 / 3; }
+/* ONDE ESTAMOS? */
+/* Celular: fachada em cima, mapa embaixo, botão de rota em largura total */
+.local-grid { display: grid; gap: 1rem; }
+.local-fachada { position: relative; margin: 0; overflow: hidden; aspect-ratio: 4 / 3; background: var(--secondary); border-radius: var(--radius); }
+.local-fachada img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.local-fachada::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 20, 20, .92) 0%, rgba(20, 20, 20, .55) 38%, rgba(20, 20, 20, 0) 68%); pointer-events: none; }
+.local-fachada figcaption { position: absolute; z-index: 1; left: 1.25rem; right: 1.25rem; bottom: 1.1rem; }
+.local-fachada h2 { color: var(--laranja); font-size: clamp(2.1rem, 9vw, 2.75rem); line-height: 1.05; }
+.local-mapa { position: relative; overflow: hidden; aspect-ratio: 1 / 1; max-height: 70svh; width: 100%; background: #1B1B1B; border: 1px solid var(--border); border-radius: var(--radius); }
+.local-mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.25) contrast(1.05); }
+.local-mapa-vazio { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .75rem; padding: 1.5rem; text-align: center; color: var(--muted-fg); font-size: .875rem; text-decoration: none; }
+.local-mapa-vazio:hover { color: var(--branco); }
+.local-mapa-vazio svg { width: 2rem; height: 2rem; color: var(--laranja); }
+.local-rota { margin-top: 1rem; }
+.local-rota .btn { width: 100%; }
+@media (min-width: 640px) { .local-mapa { aspect-ratio: 4 / 3; } }
+/* Computador: fachada e mapa lado a lado, mesma altura */
+@media (min-width: 900px) {
+  .local-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; align-items: stretch; }
+  .local-fachada, .local-mapa { aspect-ratio: 4 / 3; max-height: none; }
+  .local-fachada figcaption { left: 1.75rem; bottom: 1.5rem; }
+  .local-fachada h2 { font-size: 3rem; }
+  .local-rota { display: flex; justify-content: center; margin-top: 2rem; }
+  .local-rota .btn { width: auto; }
 }
 
 /* SOBRE */
@@ -311,10 +325,9 @@ h1, h2, h3 { font-weight: 300; letter-spacing: -.005em; }
 .ctrl:hover { background: transparent; border-color: var(--laranja); color: var(--laranja); }
 
 /* Fotos: cantos retos e leve sobreposição escura que some ao passar o mouse */
-.pf-item, .pf-item .ph, .space-item, .about-img, .lightbox .lb-media .ph { border-radius: var(--radius); }
+.pf-item, .pf-item .ph, .about-img, .lightbox .lb-media .ph { border-radius: var(--radius); }
 .pf-item { position: relative; }
-.pf-item::after, .space-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 20, 20, .35), transparent 45%); pointer-events: none; transition: opacity .3s ease; }
-.space-item { position: relative; }
+.pf-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 20, 20, .35), transparent 45%); pointer-events: none; transition: opacity .3s ease; }
 .pf-item:hover::after { opacity: 0; }
 .pf-item:focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; }
 
@@ -437,21 +450,17 @@ src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
   </section>
 
 
-  <section class="band-soft" id="espaco">
+  <section class="band-soft" id="onde-estamos">
     <div class="wrap section">
-      <div style="max-width:42rem;margin:0 auto;text-align:center">
-        <p class="eyebrow">O espaço</p>
-        <h2 class="h2" style="margin-top:.75rem">Um espaço para se sentir em casa</h2>
-        <p class="lead" style="max-width:none">O Sétimo nasceu do desejo de criar um espaço onde cada pessoa se sinta acolhida, confortável e em casa.</p>
+      <div class="local-grid">
+        <figure class="local-fachada">
+          <img src="assets/espaco-fachada.webp" srcset="assets/espaco-fachada-760.webp 760w, assets/espaco-fachada.webp 1400w" sizes="(min-width: 900px) 36rem, 100vw" width="1400" height="1050" alt="Fachada do prédio do Studio Sétimo, com vitrines de vidro escuro e a escada de entrada" loading="lazy" decoding="async">
+          <figcaption><h2>Onde estamos?</h2></figcaption>
+        </figure>
+        <div class="local-mapa" id="local-mapa"></div>
       </div>
-      <div class="space-grid">
-        <figure class="space-item"><img src="assets/espaco-01.webp" srcset="assets/espaco-01-560.webp 560w, assets/espaco-01.webp 1000w" sizes="(min-width: 768px) 30vw, 50vw" alt="Recepção do Studio Sétimo com o letreiro na parede iluminada" loading="lazy" decoding="async"></figure>
-        <figure class="space-item"><img src="assets/espaco-02.webp" srcset="assets/espaco-02-560.webp 560w, assets/espaco-02.webp 1000w" sizes="(min-width: 768px) 30vw, 50vw" alt="Sala de espera com sofá de couro, abajur, planta e quadros na parede" loading="lazy" decoding="async"></figure>
-        <figure class="space-item"><img src="assets/espaco-fachada.webp" srcset="assets/espaco-fachada-760.webp 760w, assets/espaco-fachada.webp 1400w" sizes="(min-width: 768px) 30vw, 100vw" alt="Fachada do Studio Sétimo, com o letreiro na vitrine de vidro escuro e a escada de entrada" loading="lazy" decoding="async"></figure>
-        <figure class="space-item"><img src="assets/espaco-03.webp" srcset="assets/espaco-03-760.webp 760w, assets/espaco-03.webp 1400w" sizes="(min-width: 768px) 30vw, 100vw" alt="Parede do estúdio com quadros, grades decorativas e o pôster Palinka Tattoo" loading="lazy" decoding="async"></figure>
-      </div>
-      <div class="reviews-foot">
-        <a class="link-accent" href="https://share.google/hK9pG3O5fjqwUaQ8v" target="_blank" rel="noopener noreferrer">Ver o estúdio no Google <svg class="icon"><use href="#i-ext"/></svg></a>
+      <div class="local-rota">
+        <a class="btn" id="local-rota" href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></svg>Abrir rota no Google Maps</a>
       </div>
     </div>
   </section>
@@ -541,6 +550,15 @@ const site = {
   /* Make (Integromat): recebe cada campo do formulário separado */
   webhook: "https://hook.eu2.make.com/ulwd6t2xng9khzl4a8ldigy30p9gufvd",
   mensagemWhatsApp: "Olá, Giulia, acabei de preencher o formulário e quero fazer meu orçamento.",
+  /* LOCALIZAÇÃO — "Onde estamos?"
+     endereco: endereço completo do estúdio OU o nome exato dele no Google Maps.
+       Ex.: "Rua Exemplo, 123 - Bairro, Sorocaba - SP" ou "Studio Sétimo, Sorocaba".
+       Com ele preenchido, aparece o mapa interativo e o botão abre a rota até lá.
+     link: link do perfil no Google, usado pelo botão enquanto o endereço estiver vazio. */
+  local: {
+    endereco: "",
+    link: "https://share.google/hK9pG3O5fjqwUaQ8v",
+  },
   marquee: ["HISTÓRIAS", "SENTIMENTOS", "MEMÓRIAS", "ESSÊNCIA", "SIGNIFICADO", "EXCLUSIVIDADE", "AUTENTICIDADE"],
   estilos: [
     { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-fineline-concept.webp", alt: "Fechamento de braço em fine line com escultura, bússola, geometria sagrada e a frase Memento Mori Memento Vivere" },
@@ -599,6 +617,20 @@ function srcset(src, sizes) {
 function media(src, alt, motivo, lazy = true, sizes = "") {
   return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
 }
+
+/* Onde estamos? — mapa do Google e botão de rota */
+(() => {
+  const end = (site.local.endereco || "").trim();
+  const mapa = $("local-mapa"), rota = $("local-rota");
+  if (end) {
+    const q = encodeURIComponent(end);
+    mapa.innerHTML = `<iframe src="https://www.google.com/maps?q=${q}&z=16&hl=pt-BR&output=embed" title="Mapa com a localização do estúdio" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>`;
+    rota.href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
+  } else {
+    mapa.innerHTML = `<a class="local-mapa-vazio" href="${site.local.link}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Veja a localização no Google Maps</span></a>`;
+    rota.href = site.local.link;
+  }
+})();
 
 /* Letreiro */
 const words = [...site.marquee, ...site.marquee, ...site.marquee, ...site.marquee];
