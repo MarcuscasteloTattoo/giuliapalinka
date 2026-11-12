@@ -187,7 +187,7 @@ button { font: inherit; }
 
 
 /* ONDE ESTAMOS? */
-/* Celular: fachada em cima, mapa embaixo, botão de rota em largura total */
+/* Celular: fachada em cima, mapa embaixo */
 .local-grid { display: grid; gap: 1rem; }
 .local-fachada { position: relative; margin: 0; overflow: hidden; aspect-ratio: 4 / 3; background: var(--secondary); border-radius: var(--radius); }
 .local-fachada img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
@@ -199,8 +199,6 @@ button { font: inherit; }
 .local-mapa-vazio { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .75rem; padding: 1.5rem; text-align: center; color: var(--muted-fg); font-size: .875rem; text-decoration: none; }
 .local-mapa-vazio:hover { color: var(--branco); }
 .local-mapa-vazio svg { width: 2rem; height: 2rem; color: var(--laranja); }
-.local-rota { margin-top: 1rem; }
-.local-rota .btn { width: 100%; }
 @media (min-width: 640px) { .local-mapa { aspect-ratio: 4 / 3; } }
 /* Computador: fachada e mapa lado a lado, mesma altura */
 @media (min-width: 900px) {
@@ -208,8 +206,6 @@ button { font: inherit; }
   .local-fachada, .local-mapa { aspect-ratio: 4 / 3; max-height: none; }
   .local-fachada figcaption { left: 1.75rem; bottom: 1.5rem; }
   .local-fachada h2 { font-size: 3rem; }
-  .local-rota { display: flex; justify-content: center; margin-top: 2rem; }
-  .local-rota .btn { width: auto; }
 }
 
 /* SOBRE */
@@ -459,9 +455,6 @@ src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
         </figure>
         <div class="local-mapa" id="local-mapa"></div>
       </div>
-      <div class="local-rota">
-        <a class="btn" id="local-rota" href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></svg>Abrir rota no Google Maps</a>
-      </div>
     </div>
   </section>
 
@@ -553,8 +546,8 @@ const site = {
   /* LOCALIZAÇÃO — "Onde estamos?"
      endereco: endereço completo do estúdio OU o nome exato dele no Google Maps.
        Ex.: "Rua Exemplo, 123 - Bairro, Sorocaba - SP" ou "Studio Sétimo, Sorocaba".
-       Com ele preenchido, aparece o mapa interativo e o botão abre a rota até lá.
-     link: link do perfil no Google, usado pelo botão enquanto o endereço estiver vazio. */
+       Com ele preenchido, aparece o mapa interativo (o próprio mapa tem o botão de rotas).
+     link: link do perfil no Google, aberto ao tocar no quadro do mapa enquanto o endereço estiver vazio. */
   local: {
     endereco: "",
     link: "https://share.google/hK9pG3O5fjqwUaQ8v",
@@ -618,17 +611,15 @@ function media(src, alt, motivo, lazy = true, sizes = "") {
   return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
 }
 
-/* Onde estamos? — mapa do Google e botão de rota */
+/* Onde estamos? — mapa do Google */
 (() => {
   const end = (site.local.endereco || "").trim();
-  const mapa = $("local-mapa"), rota = $("local-rota");
+  const mapa = $("local-mapa");
   if (end) {
     const q = encodeURIComponent(end);
     mapa.innerHTML = `<iframe src="https://www.google.com/maps?q=${q}&z=16&hl=pt-BR&output=embed" title="Mapa com a localização do estúdio" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>`;
-    rota.href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
   } else {
     mapa.innerHTML = `<a class="local-mapa-vazio" href="${site.local.link}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Veja a localização no Google Maps</span></a>`;
-    rota.href = site.local.link;
   }
 })();
 
