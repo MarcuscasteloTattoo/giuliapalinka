@@ -1,6 +1,6 @@
-# Victoria Hatab Tattoo
+# Giulia Palinka Tattoo
 
-Landing page da tatuadora Victoria Hatab: estilos de trabalho, portfólio, avaliações do Google, "Quem sou" e formulário de orçamento que abre o WhatsApp com a mensagem pronta.
+Landing page da tatuadora Giulia Palinka: estilos de trabalho, portfólio, avaliações do Google, "Quem sou" e formulário de orçamento que abre o WhatsApp com a mensagem pronta.
 
 É um site estático: um `index.html` e a pasta `assets/` com as fotos. Não precisa de build nem de instalação. As fontes vêm do Google Fonts.
 
@@ -34,13 +34,13 @@ Ficam direto no HTML: textos do banner e do "Quem sou", a nota do Google (5,0 e 
 Todos os campos são obrigatórios. Ao enviar, o formulário:
 
 1. Manda os dados para o webhook do Make (`webhook` no objeto `site`), cada informação num campo separado: `nome`, `whatsapp`, `whatsapp_numero` (com 55), `local_do_corpo`, `tamanho`, `estilo`, `orcamento`, `ideia`, `data_envio` (padrão brasileiro, horário de Brasília: `22/10/2026 16:54:12`) e `pagina`.
-2. Em seguida, leva a pessoa direto para o WhatsApp da Victoria com a mensagem do orçamento já escrita.
+2. Em seguida, leva a pessoa direto para o WhatsApp da Giulia com a mensagem do orçamento já escrita.
 
 No Make, use "Redetermine data structure" no módulo do webhook e envie um orçamento de teste pelo site publicado para o Make reconhecer os campos. O envio só funciona com o site publicado numa hospedagem; abrindo o arquivo direto do computador, alguns navegadores podem bloquear.
 
 ## Fotos
 
-- `favicon.png` e `apple-touch-icon.png`: ícone do site com a foto da Victoria
+- `favicon.png` e `apple-touch-icon.png`: ícone do site com a foto da Giulia
 - `assets/banner.webp`: foto do banner
 - `assets/quem-sou.webp`: foto do "Quem sou"
 - `assets/estilo-*.webp`: fotos do carrossel de estilos
