@@ -9,37 +9,43 @@
 <link rel="preload" as="image" href="assets/banner-2-m.webp" imagesrcset="assets/banner-2-m-640.webp 640w, assets/banner-2-m.webp 1000w" imagesizes="(min-width: 1024px) 50vw, (min-width: 600px) 34rem, 100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400;500;600&display=swap"></noscript>
 <style>
 body { margin: 0; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
 
-/* Layout: hero em tela cheia com retrato, letreiro, faixas alternadas papel/areia, colunas de até 72rem.
-   Paleta original do projeto (papel quente, tinta preta amarronzada, marrom terroso). Visual claro único, por escolha. */
+/* IDENTIDADE VISUAL — Studio Sétimo
+   Preto/carvão #141414 nos fundos, laranja queimado #CE6506 em títulos, destaques e detalhes,
+   branco #FFFFFF nos textos. Títulos em Cormorant Garamond Light; textos em Acumin Variable Concept
+   (Adobe Fonts) com Archivo como substituta gratuita quando a Acumin não estiver instalada. */
 :root {
-  color-scheme: light;
-  --background: oklch(0.95 0.018 68);
-  --foreground: oklch(0.18 0.012 48);
-  --card: oklch(0.975 0.012 70);
-  --primary: oklch(0.2 0.015 45);
-  --primary-fg: oklch(0.97 0.012 70);
-  --secondary: oklch(0.88 0.035 58);
-  --secondary-soft: oklch(0.915 0.026 63);
-  --secondary-fg: oklch(0.24 0.025 45);
-  --muted-fg: oklch(0.42 0.035 48);
-  --accent: oklch(0.48 0.08 43);
-  --border: oklch(0.79 0.035 58);
-  --destructive: oklch(0.577 0.245 27.325);
-  --hero-fg: oklch(0.98 0.008 75);
-  --hero-muted: oklch(0.9 0.018 70);
-  --overlay: oklch(0.12 0.015 45 / 0.62);
-  --scrim: oklch(0.08 0.01 45 / 0.92);
+  color-scheme: dark;
+  --carvao: #141414;
+  --laranja: #CE6506;
+  --laranja-escuro: #A85205;
+  --branco: #FFFFFF;
+  --background: var(--carvao);
+  --foreground: var(--branco);
+  --card: #1B1B1B;
+  --primary: var(--carvao);
+  --primary-fg: var(--branco);
+  --secondary: #202020;
+  --secondary-soft: #181818;
+  --secondary-fg: var(--branco);
+  --muted-fg: rgba(255, 255, 255, .72);
+  --accent: var(--laranja);
+  --border: rgba(255, 255, 255, .12);
+  --destructive: #FF7A66;
+  --hero-fg: var(--branco);
+  --hero-muted: rgba(255, 255, 255, .8);
+  --overlay: rgba(20, 20, 20, .62);
+  --scrim: rgba(10, 10, 10, .94);
   --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-body: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --radius: 0.375rem;
+  --font-body: "Acumin Variable Concept", "Acumin Pro", "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 2px;
 }
 [hidden] { display: none !important; }
 * { box-sizing: border-box; border-color: var(--border); }
@@ -262,8 +268,80 @@ footer { border-top: 1px solid var(--border); }
 .lb-caption { position: absolute; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); left: 1rem; right: 1rem; text-align: center; color: oklch(0.9 0.018 70); font-size: .8rem; }
 
 
+/* ACABAMENTOS — identidade Studio Sétimo (só visual; estrutura intacta) */
+::selection { background: var(--laranja); color: var(--branco); }
+body { font-weight: 400; letter-spacing: .005em; }
+h1, h2, h3 { font-weight: 300; letter-spacing: -.005em; }
+.h2, .about-copy h2, #orcamento h2 { color: var(--laranja); }
+.h2 { font-size: 2.25rem; line-height: 1.1; }
+@media (min-width: 768px) { .h2, .about-copy h2 { font-size: 3rem; } }
+.about-copy h2 { font-size: 2.25rem; line-height: 1.1; }
+.eyebrow { font-weight: 400; letter-spacing: .32em; }
+.lead { color: var(--muted-fg); }
+
+/* Banner */
+.hero-brand { color: var(--laranja); font-weight: 400; }
+.hero h1 { font-weight: 300; color: var(--branco); }
+.hero-sub { font-weight: 300; }
+@media (min-width: 600px) and (max-width: 1023px) { .hero-photo img { border-radius: 0; } }
+.hero-copy::before { content: ""; display: block; width: 2.5rem; height: 1px; background: var(--laranja); margin: 0 auto 1.25rem; }
+@media (min-width: 1024px) { .hero-copy::before { margin-left: 0; } }
+
+/* Botões: retos, editoriais, em laranja */
+.btn { border-radius: 0; background: var(--laranja); color: var(--branco); font-weight: 500; letter-spacing: .14em; padding: 1rem 2rem; transition: background .25s ease, transform .2s ease; }
+.btn:hover { background: var(--laranja-escuro); transform: none; }
+.btn-light { background: var(--branco); color: var(--carvao); }
+.btn-wa { background: var(--laranja); color: var(--branco); letter-spacing: .14em; }
+.btn-block:hover { transform: none; }
+@media (max-width: 440px) { .btn { letter-spacing: .08em; padding-inline: 1.25rem; font-size: .8rem; } .btn-wa { font-size: .85rem; } }
+
+/* Letreiro */
+.marquee { background: var(--carvao); border-block: 1px solid rgba(206, 101, 6, .4); }
+.marquee span { color: rgba(255, 255, 255, .78); font-weight: 400; }
+.marquee b { color: var(--laranja); }
+
+/* Faixas: carvão e carvão levemente mais claro, separadas por linhas finas */
+.band-card { background: var(--carvao); }
+.band-soft { background: var(--secondary-soft); }
+
+/* Carrossel de estilos */
+.style-card h3 { color: var(--branco); font-size: 1.4rem; }
+.style-card a { color: var(--laranja); }
+.ctrl { background: transparent; border-color: rgba(255, 255, 255, .28); color: var(--branco); transition: border-color .2s, color .2s; }
+.ctrl:hover { background: transparent; border-color: var(--laranja); color: var(--laranja); }
+
+/* Fotos: cantos retos e leve sobreposição escura que some ao passar o mouse */
+.pf-item, .pf-item .ph, .space-item, .about-img, .lightbox .lb-media .ph { border-radius: var(--radius); }
+.pf-item { position: relative; }
+.pf-item::after, .space-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 20, 20, .35), transparent 45%); pointer-events: none; transition: opacity .3s ease; }
+.space-item { position: relative; }
+.pf-item:hover::after { opacity: 0; }
+.pf-item:focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; }
+
+/* Links */
+.link-accent { color: var(--laranja); letter-spacing: .06em; }
+
+/* Formulário */
+label { color: var(--branco); font-weight: 400; letter-spacing: .02em; }
+input, select, textarea { border-radius: var(--radius); background-color: #1B1B1B; border-color: rgba(255, 255, 255, .16); color: var(--branco); transition: border-color .2s; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--laranja); }
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CE6506' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+select option { background: #1B1B1B; color: var(--branco); }
+input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, .42); }
+.sent { border-radius: var(--radius); }
+
+/* Rodapé */
+footer { border-top-color: rgba(206, 101, 6, .4); }
+.foot-brand { font-weight: 300; color: var(--branco); }
+.foot-ig:hover, .foot-links a:hover { color: var(--laranja); }
+
+/* Visualizador */
+.lb-btn:hover { background: var(--laranja); }
+.lb-caption { color: rgba(255, 255, 255, .8); }
+
 /* AJUSTES DE CELULAR */
 /* Carrossel de estilos: bordas esmaecidas para os cards cortados não mostrarem texto pela metade */
+.styles-viewport { -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
 @media (max-width: 767px) {
   .styles-viewport { -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent); }
 }
