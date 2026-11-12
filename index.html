@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Giulia Palinka Tattoo</title>
-<meta name="description" content="Tatuagens autorais em traços finos e delicados. Conheça o trabalho da tatuadora Giulia Palinka e solicite seu orçamento pelo WhatsApp.">
+<title>Victoria Hatab Tattoo</title>
+<meta name="description" content="Tatuagens autorais em traços finos e delicados. Conheça o trabalho da tatuadora Victoria Hatab e solicite seu orçamento pelo WhatsApp.">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="preload" as="image" href="assets/banner.webp" imagesrcset="assets/banner-800.webp 800w, assets/banner.webp 1400w" imagesizes="(min-width: 900px) 56vw, 100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap">
@@ -72,9 +73,6 @@ button { font: inherit; }
 /* HERO */
 .hero { position: relative; overflow: hidden; background: var(--primary); color: var(--hero-fg); }
 .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 38%; }
-/* Sem foto no banner: desenho em traço fino no lugar */
-.hero-art { position: absolute; inset: 0; width: 100%; height: 100%; color: oklch(0.72 0.05 60); opacity: .28; }
-.hero.no-photo::after { background: radial-gradient(ellipse at 50% 40%, oklch(0.2 0.015 45 / .2), oklch(0.14 0.015 45 / .75)); }
 .hero::after { content: ""; position: absolute; inset: 0; background: var(--overlay); }
 .hero-inner {
   position: relative; z-index: 1; min-height: 78svh; display: flex; align-items: flex-end; justify-content: center;
@@ -92,8 +90,6 @@ button { font: inherit; }
 @media (min-width: 900px) {
   .hero > img { left: auto; width: 56%; object-position: 50% 34%; }
   .hero::after { background: linear-gradient(90deg, var(--primary) 0 44%, oklch(0.2 0.015 45 / .55) 58%, oklch(0.12 0.015 45 / .15) 100%); }
-  .hero-art { left: auto; width: 56%; opacity: .55; }
-  .hero.no-photo::after { background: linear-gradient(90deg, var(--primary) 0 40%, oklch(0.2 0.015 45 / .35) 70%, transparent 100%); }
   .hero-inner { justify-content: flex-start; }
   .hero-copy { text-align: left; max-width: 31rem; }
   .hero-sub { margin-left: 0; }
@@ -186,7 +182,6 @@ button { font: inherit; }
 .about { display: grid; align-items: center; gap: 2.5rem; }
 @media (min-width: 768px) { .about { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3.5rem; } }
 @media (min-width: 1024px) { .about { gap: 5rem; } }
-#about-media .ph { aspect-ratio: 475 / 511; }
 .about-img { aspect-ratio: 475 / 511; width: 100%; height: auto; max-width: 100%; border-radius: var(--radius); object-fit: cover; object-position: 50% 0%; display: block; }
 .about-copy { min-width: 0; }
 .about-copy h2 { font-size: 1.875rem; line-height: 1.15; }
@@ -258,14 +253,31 @@ footer { border-top: 1px solid var(--border); }
   .btn, .pf-item .ph { transition: none; }
 }
 </style>
-<meta property="og:title" content="Giulia Palinka Tattoo">
+<meta property="og:title" content="Victoria Hatab Tattoo">
 <meta property="og:description" content="Tatuagens autorais em traços finos e delicados. Orçamento pelo WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="assets/banner.webp">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<!-- Meta Pixel: cole aqui o código do Pixel da Giulia (Gerenciador de Eventos da Meta), se for usar anúncios. -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1431607248384524');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
+/></noscript>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
@@ -279,22 +291,11 @@ footer { border-top: 1px solid var(--border); }
   </defs>
 </svg>
 
-<header class="hero no-photo">
-  <!-- Para usar foto no banner: troque o <svg class="hero-art"> abaixo por
-       <img src="assets/banner.webp" width="1400" height="2100" alt="Giulia Palinka no estúdio" fetchpriority="high" decoding="async">
-       e tire a classe "no-photo" do <header>. -->
-  <svg class="hero-art" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <circle cx="200" cy="250" r="150"/><circle cx="200" cy="250" r="136" stroke-dasharray="1.5 6"/>
-    <polygon points="200,100 330,325 70,325"/><polygon points="200,400 70,175 330,175"/>
-    <circle cx="200" cy="250" r="54"/><line x1="200" y1="40" x2="200" y2="460"/>
-    <path d="M200 420 C 196 370 206 330 200 296"/>
-    <path d="M200 372 C 168 360 152 336 156 314 C 182 320 198 344 200 372"/><path d="M201 342 C 232 330 248 306 244 284 C 218 292 202 316 201 342"/>
-    <g transform="translate(200 214)"><ellipse rx="10" ry="26" cy="-26"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(60)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(120)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(180)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(240)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(300)"/><circle r="6"/></g>
-    <path d="M300 70 A 34 34 0 1 0 300 138 A 26 26 0 1 1 300 70 Z"/><circle cx="92" cy="82" r="2"/><circle cx="330" cy="420" r="2"/><circle cx="72" cy="430" r="1.5"/>
-  </svg>
+<header class="hero">
+  <img src="assets/banner.webp" srcset="assets/banner-800.webp 800w, assets/banner.webp 1400w" sizes="(min-width: 900px) 56vw, 100vw" width="1400" height="2100" alt="Victoria Hatab no estúdio, avaliando uma tatuagem no braço de uma cliente" fetchpriority="high" decoding="async">
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <p class="hero-brand">Giulia Palinka Tattoo</p>
+      <p class="hero-brand">Victoria Hatab Tattoo</p>
       <h1>Traços finos e delicados</h1>
       <p class="hero-sub">Tatuagens autorais criadas para representar suas histórias, afetos e transformações pessoais.</p>
     </div>
@@ -323,17 +324,17 @@ footer { border-top: 1px solid var(--border); }
   </section>
 
 
-  <section class="band-soft" id="avaliacoes" hidden>
+  <section class="band-soft" id="avaliacoes">
     <div class="wrap section">
       <div style="max-width:42rem;margin:0 auto;text-align:center">
-        <a class="rating" id="rating" href="#" target="_blank" rel="noopener noreferrer">
+        <a class="rating" href="https://share.google/TsvvvHtRQyEqjAuRf" target="_blank" rel="noopener noreferrer" aria-label="Nota 5,0 de 5 no Google, com 29 avaliações">
           <svg class="rating-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
-          <span class="rating-num" id="rating-num"></span>
+          <span class="rating-num">5,0</span>
           <span class="rating-stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-          <span class="rating-count" id="rating-count"></span>
+          <span class="rating-count">29 avaliações</span>
         </a>
         <h2 class="eyebrow" style="margin-top:.75rem;font-family:var(--font-body)">Avaliações do Google</h2>
-        <p class="lead" style="max-width:none">O que as clientes contam depois de tatuar com a Giulia.</p>
+        <p class="lead" style="max-width:none">O que as clientes contam depois de tatuar com a Victoria.</p>
       </div>
       <div id="reviews-box">
         <div class="reviews" id="reviews" aria-label="Avaliações de clientes"></div>
@@ -343,7 +344,7 @@ footer { border-top: 1px solid var(--border); }
         </div>
       </div>
       <div class="reviews-foot">
-        <a class="link-accent" id="rating-link" href="#" target="_blank" rel="noopener noreferrer">Ver avaliações da Giulia no Google <svg class="icon"><use href="#i-ext"/></svg></a>
+        <a class="link-accent" href="https://share.google/TsvvvHtRQyEqjAuRf" target="_blank" rel="noopener noreferrer">Ver avaliações da Victoria no Google <svg class="icon"><use href="#i-ext"/></svg></a>
         
       </div>
     </div>
@@ -351,13 +352,13 @@ footer { border-top: 1px solid var(--border); }
 
   <section class="wrap section" id="sobre">
     <div class="about">
-      <div id="about-media"></div>
+      <img class="about-img" src="assets/quem-sou.webp" srcset="assets/quem-sou-720.webp 720w, assets/quem-sou.webp 1000w" sizes="(min-width: 768px) 55vw, 100vw" width="1000" height="1250" alt="Victoria Hatab sorrindo, com caneta e tablet de desenho" loading="lazy" decoding="async">
       <div class="about-copy">
-        <h2>Giulia Palinka</h2>
-        <!-- Troque estes parágrafos pela história da Giulia: como começou, há quanto tempo tatua, estilos preferidos. -->
-        <p>Cada tatuagem começa com uma conversa. Gosto de entender a história, o sentimento e o significado por trás de cada ideia antes de colocar qualquer traço no papel.</p>
-        <p>A partir daí, crio um desenho autoral, pensado para o seu corpo e para o que você quer carregar com você. Um projeto único, feito com cuidado do primeiro rascunho ao último traço.</p>
-        <a class="link-accent ig-link" href="#" target="_blank" rel="noopener noreferrer" hidden><svg class="icon"><use href="#i-ig"/></svg><span class="ig-handle"></span></a>
+        <h2>Victoria Hatab</h2>
+        <p>Sempre fui apaixonada por arte, principalmente desenho e pintura. Minha mãe vivia brigando comigo porque rabiscava todas as bonecas. Comecei a tatuar por hobby e acabei descobrindo uma profissão que mudou completamente minha vida. Antes disso, passei por diferentes caminhos, fiz três faculdades diferentes, mas nunca me encontrava de verdade. E aqui estou eu, há 5 anos sendo tatuadora!</p>
+        <p>Com o tempo, fui desenvolvendo meu próprio estilo, principalmente no Fine Line e Concept Tattoo. O que mais gosto no meu trabalho é conhecer as histórias das pessoas, entender o que existe por trás de cada ideia e transformar os sentimentos e aquilo que não cabe em palavras em uma arte única para cada pessoa.</p>
+        <p>Hoje, além de viver da tatuagem, também tenho a oportunidade de compartilhar meus conhecimentos com outros tatuadores ao redor do mundo, e eu fico muito feliz em poder ajudar essas pessoas. É muito especial olhar pra trás e perceber o quanto a tatuagem transformou minha vida. E, depois de todos esses anos, continuo acreditando que a conexão com cada pessoa é o que torna meu trabalho tão especial.</p>
+        <a class="link-accent" href="https://www.instagram.com/victoriahatab_/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-ig"/></svg>@victoriahatab_</a>
       </div>
     </div>
   </section>
@@ -375,7 +376,7 @@ footer { border-top: 1px solid var(--border); }
           </div>
           <div>
             <label for="whatsapp">Seu WhatsApp</label>
-            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" required maxlength="15" placeholder="(11) 99999-9999">
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" required maxlength="15" placeholder="(61) 99999-9999">
           </div>
           <div class="row2">
             <div>
@@ -410,10 +411,10 @@ footer { border-top: 1px solid var(--border); }
 <footer>
   <div class="wrap foot">
     <div class="foot-row">
-      <p class="foot-brand">Giulia Palinka Tattoo</p>
-      <a class="foot-ig ig-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Giulia Palinka" hidden><svg><use href="#i-ig"/></svg></a>
+      <p class="foot-brand">Victoria Hatab Tattoo</p>
+      <a class="foot-ig" href="https://www.instagram.com/victoriahatab_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Victoria Hatab"><svg><use href="#i-ig"/></svg></a>
     </div>
-    <p class="small-muted" style="margin:0">© <span id="year">2026</span> Giulia Palinka Tattoo. Todos os direitos reservados.</p>
+    <p class="small-muted" style="margin:0">© <span id="year">2026</span> Victoria Hatab Tattoo. Todos os direitos reservados.</p>
   </div>
 </footer>
 
@@ -426,44 +427,54 @@ footer { border-top: 1px solid var(--border); }
 </div>
 
 <script>
-/* CONFIGURAÇÃO — tudo o que muda fica aqui.
-   Campos vazios ("") deixam o item escondido ou com um desenho no lugar da foto. */
+/* CONFIGURAÇÃO — mesma estrutura do site-config.ts original.
+   As fotos das tatuagens ficavam no servidor do Lovable e não vieram no zip:
+   preencha "imagem"/"src" com a URL (ou data:URI) de cada foto. Vazio = espaço reservado. */
 const site = {
-  /* WhatsApp da Giulia: só números, com 55 + DDD. Ex.: "5511999999999" */
-  whatsapp: "",
-  /* Instagram sem o @. Ex.: "giuliapalinka.tattoo" */
-  instagram: "",
-  /* Make (Integromat): endereço do webhook que recebe os orçamentos. Vazio = não envia. */
-  webhook: "",
-  mensagemWhatsApp: "Olá, Giulia, acabei de preencher o formulário e quero fazer meu orçamento.",
-  /* Google: nota, total e link do perfil. A seção de avaliações só aparece quando houver avaliações na lista abaixo. */
-  google: { nota: "", total: 0, link: "" },
-  /* Foto do "Quem sou". Ex.: "assets/quem-sou.webp" */
-  fotoQuemSou: "",
+  whatsappBase: "https://wa.me/5561996511893",
+  /* Make (Integromat): recebe cada campo do formulário separado */
+  webhook: "https://hook.eu2.make.com/ulwd6t2xng9khzl4a8ldigy30p9gufvd",
+  mensagemWhatsApp: "Olá, Victoria, acabei de preencher o formulário e quero fazer meu orçamento.",
   marquee: ["HISTÓRIAS", "SENTIMENTOS", "MEMÓRIAS", "ESSÊNCIA", "SIGNIFICADO", "EXCLUSIVIDADE", "AUTENTICIDADE"],
   estilos: [
-    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", imagem: "", motivo: "geo" },
-    { titulo: "Florais e botânicas", texto: "Flores e folhagens em traços finos que acompanham as curvas do corpo com leveza.", imagem: "", motivo: "floral" },
-    { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", imagem: "", motivo: "pata" },
-    { titulo: "Delicadas", texto: "Traços leves e minimalistas, pensados para acompanhar o corpo com suavidade.", imagem: "", motivo: "linhas" },
+    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-fineline-concept.webp", alt: "Fechamento de braço em fine line com escultura, bússola, geometria sagrada e a frase Memento Mori Memento Vivere" },
+    { titulo: "Florais e botânicas", texto: "Flores e folhagens em traços finos que acompanham as curvas do corpo com leveza.", form: "Florais e botânicas", imagem: "assets/estilo-florais-botanicas.webp", alt: "Flor com efeito de transparência e folhas em pontilhismo no antebraço" },
+    { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", form: "Pets", imagem: "assets/estilo-pets.webp", alt: "Retrato de gato com coleira e plaquinha com o nome Tony, ao lado de uma espiga de milho, no antebraço" },
+    { titulo: "Delicadas", texto: "Traços leves e minimalistas, pensados para acompanhar o corpo com suavidade.", form: "Delicadas", imagem: "assets/estilo-delicadas.webp", alt: "Lírio em traço fino com linhas fluidas ao longo da coluna" },
   ],
-  /* Fotos de "Trabalhos recentes". Para cada foto: { src: "assets/portfolio-01.webp", alt: "descrição da tatuagem" } */
   portfolio: [
-    { src: "", alt: "Trabalho em fine line", motivo: "bussola" },
-    { src: "", alt: "Trabalho floral", motivo: "floral" },
-    { src: "", alt: "Trabalho com lua", motivo: "lua" },
-    { src: "", alt: "Trabalho com ramos", motivo: "ramo" },
-    { src: "", alt: "Trabalho geométrico", motivo: "geo" },
-    { src: "", alt: "Trabalho com sol", motivo: "sol" },
+    { src: "assets/portfolio-01.webp", alt: "Braço fechado em fine line com templo grego, rosto de escultura clássica e coração anatômico" },
+    { src: "assets/portfolio-02.webp", alt: "Borboleta com rosto de tigre nas asas e geometria pontilhada no esterno" },
+    { src: "assets/portfolio-03.webp", alt: "Costas com composição em fine line: pássaro de asas abertas, flores, fases da lua e escritas" },
+    { src: "assets/portfolio-04.webp", alt: "Antebraço com baleia, tartaruga, água-viva e cavalo-marinho em traço fino" },
+    { src: "assets/portfolio-05.webp", alt: "Ramos de folhas sobre os ombros e nuca, com a palavra trust ao longo da coluna" },
+    { src: "assets/portfolio-06.webp", alt: "Braço com composição geométrica, dados de RPG e personagem alienígena de três olhos" },
+    { src: "assets/portfolio-07.webp", alt: "Antebraço com câmera fotográfica, disco de vinil, bússola, livros e escritas" },
+    { src: "assets/portfolio-08.webp", alt: "Retrato de cachorro em traço fino com o nome Joey T. no antebraço" },
+    { src: "assets/portfolio-09.webp", alt: "Fechamento de braço concept com leão, ampulheta, asas e elementos geométricos" },
+    { src: "assets/portfolio-10.webp", alt: "Antebraço com mapa, paisagem de montanha em hexágono, mergulhador e tubarão" },
+    { src: "assets/portfolio-11.webp", alt: "Retrato de mulher élfica com colar de estrelas, folhagens e símbolo de áries no braço" },
+    { src: "assets/portfolio-12.webp", alt: "Antebraço com adaga, faixa com a frase Sic Parvis Magna e geometria" },
+    { src: "assets/portfolio-13.webp", alt: "Lobo de olhos azuis com lua, folhas geométricas e balança de libra no antebraço" },
+    { src: "assets/portfolio-14.webp", alt: "Braço fechado com leão, símbolo de touro, catedral e elementos em fine line" },
   ],
-  /* Avaliações reais do Google, da mais recente para a mais antiga: { nome: "", tempo: "uma semana atrás", texto: "" } */
-  avaliacoes: [],
+  avaliacoes: [
+    {nome: "Bárbara", tempo: "uma semana atrás", texto: "Foi minha primeira vez fazendo uma tatuagem com é vitória e a experiência foi simplesmente maravilhosa, tanto o atendimento e a recepção carinhosa e cuidadosa tanto o talento que ela tem! ela conseguiu expressar exatamente como eu queria que a tatuagem ficasse! foi a primeira de muitass! com certeza vou voltar viuu, recomento demais"},
+    {nome: "Giovana Matos", tempo: "4 semanas atrás", texto: "Melhor tatuadora de Brasília! Atendimento incrível, carismática, muito dedicada e cuidadosa com cada detalhe! Recomendo demais!"},
+    {nome: "Gabriella Costa", tempo: "um mês atrás", texto: "Minha experiência foi maravilhosa, eu adorei o resultado da tatuagem a Vic é um amor de pessoa 🥰🥰🥰🥰."},
+    {nome: "Brenda Alves", tempo: "2 meses atrás", texto: "Victoria eternizou em mim não apenas uma tatuagem, mas também uma trajetória: daqueles processos que nos obrigam a renascer, florescer e encontrar força diante do caos. Com um projeto que idealizei há quatro anos, ela trouxe sua própria visão e transformou minha referência em uma obra autoral, mantendo a essência daquilo que eu buscava. O resultado me surpreendeu e ficou impecável. Desejo luz em seus caminhos, expansão e muita visibilidade para a grande artista que és. Grata por eternizar esse capítulo em mim. ❤️"},
+    {nome: "Ana Paula Moura", tempo: "2 meses atrás", texto: "Excepcional. Sou muito chata com traço e estou apaixonada pelo trabalho dela!"},
+    {nome: "Viviane Nascimento", tempo: "2 meses atrás", texto: "Victoria é uma excelente profissional. Entregou tudo na minha tattoo 🤩"},
+    {nome: "Elder Fonseca", tempo: "3 meses atrás", texto: "A Victoria simplesmente conseguiu traduzir tudo que importa na minha vida em uma tatuagem. Fiquei muito feliz com resultado e indico demais o seu serviço."},
+    {nome: "Cleiton Santana", tempo: "3 meses atrás", texto: "Incrível, impecável, foda! Acho que isso resume muito bem o trabalho da Victoria. Fiz um fechamento de braço com ela e do início ao fim, o atendimento, o cuidado, a criatividade dela na criação das artes foi indescritível. Já estou com vontade de fazer mais"},
+    {nome: "Gleicy Faria", tempo: "3 meses atrás", texto: "Experiência maravilhosa! A Victoria foi super atenciosa, cuidadosa e muito profissional do início ao fim. Meu resultado ficou simplesmente perfeito, superando minhas expectativas. Dá para perceber o carinho e o talento em cada detalhe. Recomendo de olhos fechados!"},
+    {nome: "Livia Rodrigues", tempo: "3 meses atrás", texto: "Passando para dizer que a Victoria é uma profissional fantástica! Além de dar ideias maravilhosas para a tattoo, ela entrega exatamente o que promete. Trabalho impecável, super bem-feito e de extrema confiança. Amei demais o resultado de hoje, Victoria! Obrigado por tudo! 💗 🥰"},
+  ],
   investimentos: ["Até R$ 300", "De R$ 300 a R$ 600", "De R$ 600 a R$ 1.000", "De R$ 1.000 a R$ 1.500", "Acima de R$ 1.500"],
   locais: ["Braço", "Antebraço", "Perna", "Costas", "Peito", "Barriga", "Outros"],
   estilosForm: ["Fineline | Concept tattoo", "Florais e botânicas", "Pets", "Delicadas", "Outros"],
   tamanhos: ["Abaixo de 5 cm", "De 5 a 10 cm", "De 10 a 15 cm", "De 15 a 20 cm", "Acima de 20 cm"],
 };
-site.whatsappBase = site.whatsapp ? "https://wa.me/" + site.whatsapp.replace(/\D/g, "") : "";
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = (id) => document.getElementById(id);
@@ -496,17 +507,6 @@ function srcset(src, sizes) {
 function media(src, alt, motivo, lazy = true, sizes = "") {
   return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
 }
-
-/* Instagram */
-if (site.instagram) {
-  const ig = site.instagram.replace(/^@/, "");
-  document.querySelectorAll(".ig-link").forEach((a) => { a.href = `https://www.instagram.com/${ig}/`; a.hidden = false; });
-  document.querySelectorAll(".ig-handle").forEach((s) => s.textContent = "@" + ig);
-}
-/* Foto do "Quem sou" */
-$("about-media").innerHTML = site.fotoQuemSou
-  ? `<img class="about-img" src="${esc(site.fotoQuemSou)}" alt="Giulia Palinka" loading="lazy" decoding="async">`
-  : placeholder("letra", "Foto da Giulia Palinka");
 
 /* Letreiro */
 const words = [...site.marquee, ...site.marquee, ...site.marquee, ...site.marquee];
@@ -593,15 +593,7 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
 /* Avaliações: carrossel com avanço automático a cada 4 s */
 (function () {
   const box = $("reviews"), wrap = $("reviews-box");
-  if (!site.avaliacoes.length) return;
-  $("avaliacoes").hidden = false;
-  const gl = site.google;
-  if (gl.link) { $("rating").href = gl.link; $("rating-link").href = gl.link; } else { $("rating").removeAttribute("href"); $("rating-link").hidden = true; }
-  if (gl.nota && gl.total) {
-    $("rating-num").textContent = gl.nota;
-    $("rating-count").textContent = `${gl.total} avaliações`;
-    $("rating").setAttribute("aria-label", `Nota ${gl.nota} de 5 no Google, com ${gl.total} avaliações`);
-  } else $("rating").hidden = true;
+  if (!site.avaliacoes.length) { wrap.hidden = true; return; }
   const g = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
   const stars = Array.from({ length: 5 }, () => '<svg aria-hidden="true"><use href="#i-star"/></svg>').join("");
   box.innerHTML = site.avaliacoes.map((a) => {
@@ -629,7 +621,7 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
   const fill = (id, opts) => { $(id).innerHTML = '<option value="" disabled selected hidden></option>' + opts.map((o) => `<option>${o}</option>`).join(""); };
   fill("local", site.locais); fill("tamanho", site.tamanhos); fill("estilo", site.estilosForm); fill("investimento", site.investimentos);
   const form = $("quote-form"), err = $("form-error"), btn = $("submit-btn"), label = $("submit-label");
-  /* celular: DDD + 9 + 8 dígitos, ex.: 11999999999 */
+  /* celular: DDD + 9 + 8 dígitos, ex.: 61996511893 */
   function soDigitos(v) {
     let d = String(v || "").replace(/\D/g, "");
     if (d.length > 11 && d.startsWith("55")) d = d.slice(2);
@@ -639,7 +631,7 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
     const d = soDigitos(v);
     return /^[1-9]{2}9\d{8}$/.test(d) ? d : null;
   }
-  /* máscara enquanto digita: (11) 99999-9999 */
+  /* máscara enquanto digita: (61) 99651-1893 */
   function mascara(d) {
     if (!d) return "";
     if (d.length <= 2) return `(${d}`;
@@ -653,7 +645,7 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
   });
   function fmt(d) { return d.length === 11 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`; }
   let ultimoEnvio = "";
-  /* MODO DE TESTE: abra o site com ?teste no fim do endereço (seusite.com.br/?teste).
+  /* MODO DE TESTE: abra o site com ?teste no fim do endereço (victoriahatab.com/?teste).
      Mostra cada etapa do envio na tela e não redireciona sozinho. */
   const VERSAO = "22/10/2026 17:20";
   const modoTeste = /(^|[?&#])teste\b/.test(location.search.slice(1) + "&" + location.hash.slice(1));
@@ -725,13 +717,12 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
     let msg = "";
     const phone = normPhone(v("whatsapp"));
     if (!v("nome")) msg = "Informe seu nome.";
-    else if (!phone) msg = "Digite o DDD e o celular com o 9. Ex.: (11) 99999-9999";
+    else if (!phone) msg = "Digite o DDD e o celular com o 9. Ex.: (61) 99999-9999";
     else if (!v("local")) msg = "Escolha o local do corpo.";
     else if (!v("tamanho")) msg = "Escolha o tamanho aproximado.";
     else if (!v("estilo")) msg = "Escolha o estilo da tatuagem.";
     else if (!v("investimento")) msg = "Escolha o seu orçamento para essa tatuagem.";
     else if (!v("ideia")) msg = "Conte sua ideia de tatuagem.";
-    if (!msg && !site.whatsappBase) msg = "O WhatsApp da Giulia ainda não foi configurado no site.";
     if (msg) { err.textContent = msg; err.hidden = false; return; }
     if (enviando) return;
     err.hidden = true;
