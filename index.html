@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giulia Palinka Tattoo</title>
+<meta name="description" content="Tatuagens autorais em traços finos e delicados. Conheça o trabalho da tatuadora Giulia Palinka e solicite seu orçamento pelo WhatsApp.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@400;500;600&display=swap"></noscript>
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* Layout: hero em tela cheia com retrato, letreiro, faixas alternadas papel/areia, colunas de até 72rem.
+   Paleta original do projeto (papel quente, tinta preta amarronzada, marrom terroso). Visual claro único, por escolha. */
+:root {
+  color-scheme: light;
+  --background: oklch(0.95 0.018 68);
+  --foreground: oklch(0.18 0.012 48);
+  --card: oklch(0.975 0.012 70);
+  --primary: oklch(0.2 0.015 45);
+  --primary-fg: oklch(0.97 0.012 70);
+  --secondary: oklch(0.88 0.035 58);
+  --secondary-soft: oklch(0.915 0.026 63);
+  --secondary-fg: oklch(0.24 0.025 45);
+  --muted-fg: oklch(0.42 0.035 48);
+  --accent: oklch(0.48 0.08 43);
+  --border: oklch(0.79 0.035 58);
+  --destructive: oklch(0.577 0.245 27.325);
+  --hero-fg: oklch(0.98 0.008 75);
+  --hero-muted: oklch(0.9 0.018 70);
+  --overlay: oklch(0.12 0.015 45 / 0.62);
+  --scrim: oklch(0.08 0.01 45 / 0.92);
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 0.375rem;
+}
+[hidden] { display: none !important; }
+* { box-sizing: border-box; border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap {
+  max-width: 72rem; margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.section { padding-block: 4rem; }
+@media (min-width: 768px) { .section { padding-block: 6rem; } }
+.h2 { font-size: 1.875rem; line-height: 1.15; text-align: center; }
+@media (min-width: 768px) { .h2 { font-size: 2.25rem; } }
+.lead { font-size: .875rem; color: var(--muted-fg); text-align: center; margin: 1rem auto 0; max-width: 28rem; line-height: 1.6; }
+.eyebrow { font-size: .75rem; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); }
+.icon { width: 1rem; height: 1rem; flex: none; }
+
+/* HERO */
+.hero { position: relative; overflow: hidden; background: var(--primary); color: var(--hero-fg); }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 38%; }
+/* Sem foto no banner: desenho em traço fino no lugar */
+.hero-art { position: absolute; inset: 0; width: 100%; height: 100%; color: oklch(0.72 0.05 60); opacity: .28; }
+.hero.no-photo::after { background: radial-gradient(ellipse at 50% 40%, oklch(0.2 0.015 45 / .2), oklch(0.14 0.015 45 / .75)); }
+.hero::after { content: ""; position: absolute; inset: 0; background: var(--overlay); }
+.hero-inner {
+  position: relative; z-index: 1; min-height: 78svh; display: flex; align-items: flex-end; justify-content: center;
+  padding-block: 5rem 3.5rem;
+}
+@media (min-width: 768px) { .hero-inner { min-height: 84svh; align-items: center; padding-block: 6rem; } }
+.hero-copy { max-width: 36rem; text-align: center; }
+.hero-brand { margin-bottom: 1rem; font-size: .75rem; font-weight: 500; letter-spacing: .35em; text-transform: uppercase; color: var(--hero-muted); }
+.hero h1 { font-size: 3rem; line-height: 1.05; color: var(--hero-fg); }
+@media (min-width: 768px) { .hero h1 { font-size: 4.5rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 6rem; } }
+.hero-sub { margin: 1.5rem auto 0; max-width: 28rem; font-size: 1rem; line-height: 1.65; color: var(--hero-muted); }
+@media (min-width: 768px) { .hero-sub { font-size: 1.125rem; } }
+.hero-cta { margin-top: 2rem; }
+@media (min-width: 900px) {
+  .hero > img { left: auto; width: 56%; object-position: 50% 34%; }
+  .hero::after { background: linear-gradient(90deg, var(--primary) 0 44%, oklch(0.2 0.015 45 / .55) 58%, oklch(0.12 0.015 45 / .15) 100%); }
+  .hero-art { left: auto; width: 56%; opacity: .55; }
+  .hero.no-photo::after { background: linear-gradient(90deg, var(--primary) 0 40%, oklch(0.2 0.015 45 / .35) 70%, transparent 100%); }
+  .hero-inner { justify-content: flex-start; }
+  .hero-copy { text-align: left; max-width: 31rem; }
+  .hero-sub { margin-left: 0; }
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border: 0; border-radius: 999px; background: var(--primary); color: var(--primary-fg);
+  padding: .9rem 1.75rem; font-size: .875rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; transition: transform .2s ease;
+}
+.btn:hover { transform: scale(1.03); }
+.btn-light { background: var(--hero-fg); color: var(--primary); }
+
+/* MARQUEE */
+.marquee { position: relative; z-index: 1; border-block: 1px solid var(--border); background: var(--secondary); padding-block: .75rem; overflow: hidden; display: flex; }
+.marquee-track { display: flex; flex: none; align-items: center; gap: 2rem; padding-right: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+.marquee span { display: inline-flex; align-items: center; gap: 2rem; font-size: .75rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--muted-fg); }
+.marquee b { color: var(--accent); font-weight: 400; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ESTILOS */
+.band-card { background: var(--card); border-top: 1px solid var(--border); }
+.styles-viewport { overflow: hidden; padding-bottom: .5rem; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; }
+.styles-viewport.dragging { cursor: grabbing; }
+.styles-track { display: flex; width: max-content; will-change: transform; }
+.styles-copy { display: flex; }
+.style-card { width: 15rem; flex: none; padding-right: 1.5rem; }
+@media (min-width: 640px) { .style-card { width: 19rem; } }
+.style-card h3 { margin-top: 1.25rem; font-size: 1.25rem; }
+.style-card p { margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: var(--muted-fg); }
+.style-card a { display: inline-block; margin-top: .75rem; font-size: .8rem; font-weight: 500; color: var(--accent); text-underline-offset: 4px; }
+.ctrls { margin-top: 1.25rem; display: flex; justify-content: center; gap: .75rem; }
+.ctrl {
+  display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--card); color: var(--foreground); cursor: pointer; transition: background .2s;
+}
+.ctrl:hover { background: var(--secondary); }
+.ctrl svg { width: 1.25rem; height: 1.25rem; }
+
+/* Imagem / espaço reservado */
+.ph { aspect-ratio: 4 / 5; width: 100%; max-width: 100%; border-radius: var(--radius); overflow: hidden; display: block; background: var(--secondary-soft); position: relative; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph svg.art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ph .ph-label {
+  position: absolute; left: .75rem; right: .75rem; bottom: .7rem; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted-fg); text-align: center; line-height: 1.4;
+}
+
+/* PORTFÓLIO */
+.grid-pf { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+@media (min-width: 768px) { .grid-pf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; } }
+.pf-item { padding: 0; border: 0; background: none; border-radius: .75rem; overflow: hidden; cursor: zoom-in; display: block; }
+.pf-item .ph { border-radius: .75rem; transition: transform .3s ease; }
+.pf-item:hover .ph { transform: scale(1.04); }
+.center { margin-top: 2.5rem; display: flex; justify-content: center; }
+
+
+/* AVALIAÇÕES */
+.band-soft { background: var(--secondary-soft); border-block: 1px solid var(--border); }
+.reviews { margin-top: 2.5rem; display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: none; }
+.reviews::-webkit-scrollbar { display: none; }
+.review {
+  flex: none; width: 86%; scroll-snap-align: start; min-height: 20rem; display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: .5rem; background: var(--card); padding: 1.5rem;
+}
+@media (min-width: 640px) { .review { width: calc(50% - .5rem); } }
+@media (min-width: 1024px) { .review { width: calc(33.333% - .667rem); } }
+.review-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; }
+.avatar { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; background: var(--secondary); color: var(--secondary-fg); font-size: .875rem; font-weight: 600; }
+.review h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.review time { display: block; margin-top: .2rem; font-size: .75rem; color: var(--muted-fg); }
+.g-badge { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 999px; border: 1px solid var(--border); background: var(--card); box-shadow: 0 1px 2px oklch(0.2 0.015 45 / .08); }
+.g-badge svg { width: 1rem; height: 1rem; }
+.stars { margin-top: 1.25rem; display: flex; gap: .125rem; color: var(--accent); }
+.stars svg { width: 1rem; height: 1rem; }
+.review p { margin-top: 1rem; font-size: .875rem; line-height: 1.65; }
+.reviews-foot { margin-top: 2.25rem; text-align: center; }
+.rating { margin: 0 auto; display: inline-flex; align-items: center; gap: .6rem; padding: .55rem 1.1rem; border: 1px solid var(--border); border-radius: 999px; background: var(--card); color: var(--foreground); text-decoration: none; }
+.rating:hover { border-color: var(--accent); }
+.rating-num { font-family: var(--font-body); font-size: 1.6rem; font-weight: 600; letter-spacing: -.01em; line-height: 1; font-variant-numeric: tabular-nums; }
+.rating-stars { display: flex; gap: .1rem; color: oklch(0.8 0.16 80); }
+.rating-stars svg { width: 1.15rem; height: 1.15rem; }
+.rating-count { font-size: .8rem; color: var(--muted-fg); }
+.rating-g { width: 1.5rem; height: 1.5rem; flex: none; }
+.link-accent { display: inline-flex; align-items: center; gap: .5rem; font-size: .875rem; font-weight: 500; color: var(--accent); text-decoration: none; text-underline-offset: 4px; }
+.link-accent:hover { text-decoration: underline; }
+.small-muted { margin-top: .75rem; font-size: .75rem; color: var(--muted-fg); }
+
+/* SOBRE */
+.about { display: grid; align-items: center; gap: 2.5rem; }
+@media (min-width: 768px) { .about { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3.5rem; } }
+@media (min-width: 1024px) { .about { gap: 5rem; } }
+#about-media .ph { aspect-ratio: 475 / 511; }
+.about-img { aspect-ratio: 475 / 511; width: 100%; height: auto; max-width: 100%; border-radius: var(--radius); object-fit: cover; object-position: 50% 0%; display: block; }
+.about-copy { min-width: 0; }
+.about-copy h2 { font-size: 1.875rem; line-height: 1.15; }
+@media (min-width: 768px) { .about-copy h2 { font-size: 2.25rem; } }
+.about-copy p { margin-top: 1.25rem; line-height: 1.7; color: var(--muted-fg); max-width: 38rem; }
+.about-copy .link-accent { margin-top: 1.75rem; letter-spacing: .04em; text-transform: uppercase; }
+
+/* FORMULÁRIO */
+.form-wrap { max-width: 36rem; margin: 0 auto; }
+form { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
+.row2 { display: grid; gap: 1.25rem; }
+@media (min-width: 640px) { .row2 { grid-template-columns: 1fr 1fr; } }
+label { display: block; margin-bottom: .375rem; font-size: .875rem; font-weight: 500; }
+input, select, textarea {
+  width: 100%; border: 1px solid var(--border); border-radius: .5rem; background: var(--card); color: var(--foreground);
+  padding: .75rem 1rem; font: inherit; font-size: .875rem;
+}
+textarea { resize: vertical; min-height: 6rem; }
+select {
+  appearance: none; -webkit-appearance: none; padding-right: 2.5rem; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b5442' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .9rem center; background-size: 1rem;
+}
+input::placeholder, textarea::placeholder { color: oklch(0.55 0.03 50); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-error { font-size: .875rem; color: var(--destructive); }
+.btn-block { width: 100%; padding-block: 1rem; white-space: normal; }
+.btn-block:hover { transform: scale(1.02); }
+.sent {
+  border: 1px solid var(--border); border-radius: .5rem; background: var(--card); padding: 1.25rem; text-align: center;
+  display: grid; gap: .75rem; justify-items: center;
+}
+.sent p { font-size: .875rem; color: var(--muted-fg); line-height: 1.6; }
+.btn-wa { background: oklch(0.55 0.15 150); color: oklch(1 0 0); font-size: 1rem; letter-spacing: .06em; padding-block: 1.1rem; }
+.btn-wa .icon-wa { width: 1.4rem; height: 1.4rem; }
+.btn-wa:disabled { opacity: .8; cursor: wait; transform: none; }
+@media (max-width: 440px) { .btn-wa { font-size: .85rem; letter-spacing: .03em; gap: .6rem; padding-inline: 1rem; } .btn-wa .icon-wa { width: 1.25rem; height: 1.25rem; } }
+
+/* RODAPÉ */
+footer { border-top: 1px solid var(--border); }
+.foot { padding-block: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+.foot-brand { font-family: var(--font-display); font-size: 1.5rem; }
+.foot-row { display: flex; align-items: center; gap: .75rem; }
+.foot-ig { display: inline-grid; place-items: center; color: var(--muted-fg); transition: color .2s; }
+.foot-ig:hover { color: var(--foreground); }
+.foot-ig svg { width: 1.25rem; height: 1.25rem; }
+.foot-links a { color: var(--muted-fg); transition: color .2s; }
+.foot-links a:hover { color: var(--foreground); }
+.foot-links svg { width: 1.25rem; height: 1.25rem; }
+
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; background: var(--scrim); padding: 1rem; }
+.lightbox .lb-media { width: min(90vw, calc(85vh * 0.8)); max-height: 85vh; }
+.lightbox .lb-media .ph { border-radius: .5rem; }
+.lb-btn {
+  position: absolute; border: 0; border-radius: 999px; background: oklch(1 0 0 / .12); color: oklch(1 0 0);
+  padding: .5rem; cursor: pointer; display: grid; place-items: center;
+}
+.lb-btn:hover { background: oklch(1 0 0 / .22); }
+.lb-btn svg { width: 1.5rem; height: 1.5rem; }
+.lb-close { top: calc(1rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px)); }
+.lb-prev { left: calc(.75rem + env(safe-area-inset-left, 0px)); }
+.lb-next { right: calc(.75rem + env(safe-area-inset-right, 0px)); }
+.lb-caption { position: absolute; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); left: 1rem; right: 1rem; text-align: center; color: oklch(0.9 0.018 70); font-size: .8rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  .btn, .pf-item .ph { transition: none; }
+}
+</style>
+<meta property="og:title" content="Giulia Palinka Tattoo">
+<meta property="og:description" content="Tatuagens autorais em traços finos e delicados. Orçamento pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Meta Pixel: cole aqui o código do Pixel da Giulia (Gerenciador de Eventos da Meta), se for usar anúncios. -->
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2.3a.6.6 0 0 1 1 0l2.6 5.4 5.9.8a.6.6 0 0 1 .3 1l-4.3 4.2 1 5.9a.6.6 0 0 1-.8.6L12 17.4l-5.3 2.8a.6.6 0 0 1-.8-.6l1-5.9-4.3-4.2a.6.6 0 0 1 .3-1l5.9-.8Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C8.85 3 3 8.73 3 15.77c0 2.25.6 4.44 1.75 6.36L3 28.5l6.57-1.69a13.2 13.2 0 0 0 6.47 1.67C23.23 28.48 29 22.75 29 15.71 29 8.73 23.23 3 16.04 3Zm7.59 18.02c-.32.88-1.88 1.69-2.61 1.79-.68.1-1.54.14-2.48-.15-.57-.18-1.3-.42-2.24-.82-3.94-1.67-6.52-5.57-6.72-5.83-.2-.26-1.6-2.09-1.6-3.99 0-1.9 1.01-2.83 1.37-3.22.36-.39.78-.49 1.05-.49h.75c.24 0 .56-.09.88.65.32.75 1.1 2.64 1.2 2.83.1.2.16.42.03.68-.13.26-.2.42-.39.65-.2.23-.41.51-.59.68-.2.2-.4.41-.17.8.23.39 1.02 1.64 2.19 2.66 1.5 1.31 2.77 1.72 3.16 1.92.39.2.62.16.85-.1.23-.26.98-1.12 1.24-1.51.26-.39.52-.33.88-.2.36.13 2.29 1.06 2.68 1.25.39.2.65.29.75.46.1.16.1.94-.22 1.82Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="hero no-photo">
+  <!-- Para usar foto no banner: troque o <svg class="hero-art"> abaixo por
+       <img src="assets/banner.webp" width="1400" height="2100" alt="Giulia Palinka no estúdio" fetchpriority="high" decoding="async">
+       e tire a classe "no-photo" do <header>. -->
+  <svg class="hero-art" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="200" cy="250" r="150"/><circle cx="200" cy="250" r="136" stroke-dasharray="1.5 6"/>
+    <polygon points="200,100 330,325 70,325"/><polygon points="200,400 70,175 330,175"/>
+    <circle cx="200" cy="250" r="54"/><line x1="200" y1="40" x2="200" y2="460"/>
+    <path d="M200 420 C 196 370 206 330 200 296"/>
+    <path d="M200 372 C 168 360 152 336 156 314 C 182 320 198 344 200 372"/><path d="M201 342 C 232 330 248 306 244 284 C 218 292 202 316 201 342"/>
+    <g transform="translate(200 214)"><ellipse rx="10" ry="26" cy="-26"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(60)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(120)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(180)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(240)"/><ellipse rx="10" ry="26" cy="-26" transform="rotate(300)"/><circle r="6"/></g>
+    <path d="M300 70 A 34 34 0 1 0 300 138 A 26 26 0 1 1 300 70 Z"/><circle cx="92" cy="82" r="2"/><circle cx="330" cy="420" r="2"/><circle cx="72" cy="430" r="1.5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="hero-brand">Giulia Palinka Tattoo</p>
+      <h1>Traços finos e delicados</h1>
+      <p class="hero-sub">Tatuagens autorais criadas para representar suas histórias, afetos e transformações pessoais.</p>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+</header>
+
+<main>
+  <section class="band-card">
+    <div class="wrap section">
+      <h2 class="h2" style="margin-bottom:2.5rem">Estilos de trabalho</h2>
+      <div id="styles" aria-label="Estilos de trabalho">
+        <div class="styles-viewport" id="styles-viewport"><div class="styles-track" id="styles-track"></div></div>
+        <div class="ctrls">
+          <button type="button" class="ctrl" id="styles-prev" aria-label="Estilo anterior"><svg><use href="#i-left"/></svg></button>
+          <button type="button" class="ctrl" id="styles-next" aria-label="Próximo estilo"><svg><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="portfolio">
+    <h2 class="h2">Trabalhos recentes</h2>
+    <div class="grid-pf" id="portfolio-grid"></div>
+    <div class="center"><a class="btn" href="#orcamento"><svg class="icon"><use href="#i-msg"/></svg>Quero fazer minha tatuagem</a></div>
+  </section>
+
+
+  <section class="band-soft" id="avaliacoes" hidden>
+    <div class="wrap section">
+      <div style="max-width:42rem;margin:0 auto;text-align:center">
+        <a class="rating" id="rating" href="#" target="_blank" rel="noopener noreferrer">
+          <svg class="rating-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+          <span class="rating-num" id="rating-num"></span>
+          <span class="rating-stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <span class="rating-count" id="rating-count"></span>
+        </a>
+        <h2 class="eyebrow" style="margin-top:.75rem;font-family:var(--font-body)">Avaliações do Google</h2>
+        <p class="lead" style="max-width:none">O que as clientes contam depois de tatuar com a Giulia.</p>
+      </div>
+      <div id="reviews-box">
+        <div class="reviews" id="reviews" aria-label="Avaliações de clientes"></div>
+        <div class="ctrls" style="margin-top:1rem">
+          <button type="button" class="ctrl" id="rev-prev" aria-label="Avaliação anterior"><svg><use href="#i-left"/></svg></button>
+          <button type="button" class="ctrl" id="rev-next" aria-label="Próxima avaliação"><svg><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="reviews-foot">
+        <a class="link-accent" id="rating-link" href="#" target="_blank" rel="noopener noreferrer">Ver avaliações da Giulia no Google <svg class="icon"><use href="#i-ext"/></svg></a>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="sobre">
+    <div class="about">
+      <div id="about-media"></div>
+      <div class="about-copy">
+        <h2>Giulia Palinka</h2>
+        <!-- Troque estes parágrafos pela história da Giulia: como começou, há quanto tempo tatua, estilos preferidos. -->
+        <p>Cada tatuagem começa com uma conversa. Gosto de entender a história, o sentimento e o significado por trás de cada ideia antes de colocar qualquer traço no papel.</p>
+        <p>A partir daí, crio um desenho autoral, pensado para o seu corpo e para o que você quer carregar com você. Um projeto único, feito com cuidado do primeiro rascunho ao último traço.</p>
+        <a class="link-accent ig-link" href="#" target="_blank" rel="noopener noreferrer" hidden><svg class="icon"><use href="#i-ig"/></svg><span class="ig-handle"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-soft" id="orcamento" style="border-bottom:0">
+    <div class="wrap section">
+      <div class="form-wrap">
+        <h2 class="h2">Faça seu orçamento</h2>
+        <p class="lead" style="max-width:none">Preencha rapidinho e continue a conversa pelo WhatsApp com tudo já organizado.</p>
+        <form id="quote-form" novalidate>
+          <input type="text" name="website" id="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div>
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" required maxlength="100" autocomplete="name" placeholder="Como posso te chamar?">
+          </div>
+          <div>
+            <label for="whatsapp">Seu WhatsApp</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" required maxlength="15" placeholder="(11) 99999-9999">
+          </div>
+          <div class="row2">
+            <div>
+              <label for="local">Local do corpo</label>
+              <select id="local" name="local" required></select>
+            </div>
+            <div>
+              <label for="tamanho">Tamanho aproximado</label>
+              <select id="tamanho" name="tamanho" required></select>
+            </div>
+          </div>
+          <div>
+            <label for="estilo">Estilo da tatuagem</label>
+            <select id="estilo" name="estilo" required></select>
+          </div>
+          <div>
+            <label for="investimento">Qual o seu orçamento para essa tatuagem?</label>
+            <select id="investimento" name="investimento" required></select>
+          </div>
+          <div>
+            <label for="ideia">Ideia da tatuagem</label>
+            <textarea id="ideia" name="ideia" required rows="3" maxlength="1000" placeholder="Conte o que você imagina: tema, referências, significado…"></textarea>
+          </div>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button type="submit" class="btn btn-block btn-wa" id="submit-btn"><svg class="icon icon-wa"><use href="#i-wa"/></svg><span id="submit-label">Quero receber meu orçamento</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-row">
+      <p class="foot-brand">Giulia Palinka Tattoo</p>
+      <a class="foot-ig ig-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Giulia Palinka" hidden><svg><use href="#i-ig"/></svg></a>
+    </div>
+    <p class="small-muted" style="margin:0">© <span id="year">2026</span> Giulia Palinka Tattoo. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Fechar"><svg><use href="#i-x"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Foto anterior"><svg><use href="#i-left"/></svg></button>
+  <div class="lb-media" id="lb-media"></div>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Próxima foto"><svg><use href="#i-right"/></svg></button>
+  <p class="lb-caption" id="lb-caption"></p>
+</div>
+
+<script>
+/* CONFIGURAÇÃO — tudo o que muda fica aqui.
+   Campos vazios ("") deixam o item escondido ou com um desenho no lugar da foto. */
+const site = {
+  /* WhatsApp da Giulia: só números, com 55 + DDD. Ex.: "5511999999999" */
+  whatsapp: "",
+  /* Instagram sem o @. Ex.: "giuliapalinka.tattoo" */
+  instagram: "",
+  /* Make (Integromat): endereço do webhook que recebe os orçamentos. Vazio = não envia. */
+  webhook: "",
+  mensagemWhatsApp: "Olá, Giulia, acabei de preencher o formulário e quero fazer meu orçamento.",
+  /* Google: nota, total e link do perfil. A seção de avaliações só aparece quando houver avaliações na lista abaixo. */
+  google: { nota: "", total: 0, link: "" },
+  /* Foto do "Quem sou". Ex.: "assets/quem-sou.webp" */
+  fotoQuemSou: "",
+  marquee: ["HISTÓRIAS", "SENTIMENTOS", "MEMÓRIAS", "ESSÊNCIA", "SIGNIFICADO", "EXCLUSIVIDADE", "AUTENTICIDADE"],
+  estilos: [
+    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", imagem: "", motivo: "geo" },
+    { titulo: "Florais e botânicas", texto: "Flores e folhagens em traços finos que acompanham as curvas do corpo com leveza.", imagem: "", motivo: "floral" },
+    { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", imagem: "", motivo: "pata" },
+    { titulo: "Delicadas", texto: "Traços leves e minimalistas, pensados para acompanhar o corpo com suavidade.", imagem: "", motivo: "linhas" },
+  ],
+  /* Fotos de "Trabalhos recentes". Para cada foto: { src: "assets/portfolio-01.webp", alt: "descrição da tatuagem" } */
+  portfolio: [
+    { src: "", alt: "Trabalho em fine line", motivo: "bussola" },
+    { src: "", alt: "Trabalho floral", motivo: "floral" },
+    { src: "", alt: "Trabalho com lua", motivo: "lua" },
+    { src: "", alt: "Trabalho com ramos", motivo: "ramo" },
+    { src: "", alt: "Trabalho geométrico", motivo: "geo" },
+    { src: "", alt: "Trabalho com sol", motivo: "sol" },
+  ],
+  /* Avaliações reais do Google, da mais recente para a mais antiga: { nome: "", tempo: "uma semana atrás", texto: "" } */
+  avaliacoes: [],
+  investimentos: ["Até R$ 300", "De R$ 300 a R$ 600", "De R$ 600 a R$ 1.000", "De R$ 1.000 a R$ 1.500", "Acima de R$ 1.500"],
+  locais: ["Braço", "Antebraço", "Perna", "Costas", "Peito", "Barriga", "Outros"],
+  estilosForm: ["Fineline | Concept tattoo", "Florais e botânicas", "Pets", "Delicadas", "Outros"],
+  tamanhos: ["Abaixo de 5 cm", "De 5 a 10 cm", "De 10 a 15 cm", "De 15 a 20 cm", "Acima de 20 cm"],
+};
+site.whatsappBase = site.whatsapp ? "https://wa.me/" + site.whatsapp.replace(/\D/g, "") : "";
+
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* Desenhos em traço fino para os espaços reservados (até as fotos voltarem) */
+const motifs = {
+  floral: '<g><path d="M100 205 C 98 170 104 140 100 110"/><path d="M100 168 C 80 160 70 146 72 132 C 88 136 98 150 100 168"/><path d="M101 150 C 120 142 130 128 128 114 C 112 118 102 132 101 150"/>' +
+    [0,60,120,180,240,300].map(a => `<ellipse cx="100" cy="88" rx="9" ry="20" transform="rotate(${a} 100 108)"/>`).join("") + '<circle cx="100" cy="108" r="5"/></g>',
+  ramo: '<g><path d="M70 210 C 95 170 110 120 135 60"/>' +
+    [0,1,2,3,4,5].map(i => { const y = 190 - i * 24, x = 79 + i * 9.6; return `<path d="M${x} ${y} c -22 -4 -30 -16 -30 -26 c 16 2 28 12 30 26"/><path d="M${x+3} ${y-8} c 20 -8 26 -22 24 -32 c -14 4 -24 16 -24 32"/>`; }).join("") + '</g>',
+  pata: '<g><ellipse cx="100" cy="140" rx="26" ry="22"/><ellipse cx="68" cy="104" rx="10" ry="14" transform="rotate(-20 68 104)"/><ellipse cx="90" cy="88" rx="10" ry="15"/><ellipse cx="112" cy="88" rx="10" ry="15"/><ellipse cx="132" cy="104" rx="10" ry="14" transform="rotate(20 132 104)"/><path d="M60 180 C 80 196 120 196 140 180"/></g>',
+  bussola: '<g><circle cx="100" cy="125" r="52"/><circle cx="100" cy="125" r="44" stroke-dasharray="2 5"/><path d="M100 65 L110 125 L100 185 L90 125 Z"/><path d="M40 125 L100 117 L160 125 L100 133 Z"/><circle cx="100" cy="125" r="4"/></g>',
+  sol: '<g><circle cx="100" cy="120" r="22"/>' + Array.from({ length: 16 }, (_, i) => { const a = i * Math.PI / 8, r1 = 32, r2 = i % 2 ? 52 : 66; return `<line x1="${(100 + r1 * Math.cos(a)).toFixed(1)}" y1="${(120 + r1 * Math.sin(a)).toFixed(1)}" x2="${(100 + r2 * Math.cos(a)).toFixed(1)}" y2="${(120 + r2 * Math.sin(a)).toFixed(1)}"/>`; }).join("") + '</g>',
+  linhas: '<g><path d="M60 60 C 140 90 50 130 120 160 S 90 200 130 215"/><path d="M80 50 C 160 85 70 125 140 155"/><path d="M50 90 C 110 110 60 150 100 190"/></g>',
+  lua: '<g><path d="M120 70 A 55 55 0 1 0 120 180 A 42 42 0 1 1 120 70 Z"/><circle cx="140" cy="90" r="2"/><circle cx="150" cy="130" r="1.5"/><circle cx="132" cy="160" r="1.5"/><path d="M146 108 l4 -8 l4 8 l-4 8 z"/></g>',
+  geo: '<g><circle cx="100" cy="125" r="50"/><polygon points="100,75 143,150 57,150"/><polygon points="100,175 57,100 143,100"/><circle cx="100" cy="125" r="18"/><line x1="100" y1="55" x2="100" y2="195"/></g>',
+  letra: '<g><path d="M55 140 C 60 110 75 105 78 120 C 80 135 70 150 82 140 C 95 128 98 112 105 124 C 110 134 112 146 122 132 C 130 120 136 118 140 128 C 143 136 148 140 152 132"/><path d="M60 160 L140 160" stroke-dasharray="1 6"/></g>',
+};
+function placeholder(motivo, label) {
+  return `<span class="ph" role="img" aria-label="${esc(label)}">
+    <svg class="art" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid meet" fill="none" stroke="oklch(0.36 0.03 48)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${motifs[motivo] || motifs.ramo}</svg>
+    <span class="ph-label">Foto a adicionar</span></span>`;
+}
+/* fotos em assets/ têm uma versão menor (-480) para telas pequenas */
+function srcset(src, sizes) {
+  if (!sizes || !/^assets\/(portfolio|estilo)-[\w-]+\.webp$/.test(src)) return "";
+  return ` srcset="${src.replace(/\.webp$/, "-480.webp")} 480w, ${src} 900w" sizes="${sizes}"`;
+}
+function media(src, alt, motivo, lazy = true, sizes = "") {
+  return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
+}
+
+/* Instagram */
+if (site.instagram) {
+  const ig = site.instagram.replace(/^@/, "");
+  document.querySelectorAll(".ig-link").forEach((a) => { a.href = `https://www.instagram.com/${ig}/`; a.hidden = false; });
+  document.querySelectorAll(".ig-handle").forEach((s) => s.textContent = "@" + ig);
+}
+/* Foto do "Quem sou" */
+$("about-media").innerHTML = site.fotoQuemSou
+  ? `<img class="about-img" src="${esc(site.fotoQuemSou)}" alt="Giulia Palinka" loading="lazy" decoding="async">`
+  : placeholder("letra", "Foto da Giulia Palinka");
+
+/* Letreiro */
+const words = [...site.marquee, ...site.marquee, ...site.marquee, ...site.marquee];
+$("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("");
+
+/* Estilos: carrossel contínuo, pausa no hover, arrasto e setas */
+(function () {
+  const track = $("styles-track"), viewport = $("styles-viewport");
+  const card = (e) => `<article class="style-card">${media(e.imagem, e.alt || e.titulo, e.motivo, true, "(min-width: 640px) 19rem, 15rem")}<h3>${e.titulo}</h3><p>${e.texto}</p></article>`;
+  track.innerHTML = [0, 1, 2, 3].map((c) => `<div class="styles-copy"${c ? ' aria-hidden="true"' : ""}>${site.estilos.map(card).join("")}</div>`).join("");
+  track.querySelectorAll('.styles-copy[aria-hidden] a').forEach((a) => a.tabIndex = -1);
+  const copy = track.firstElementChild;
+  const st = { paused: false, pos: 0, target: null, drag: null, moved: 0 };
+  /* largura medida só quando muda e animação parada fora da tela: evita reflow a cada quadro */
+  let copyW = copy.offsetWidth, visivel = true;
+  if (window.ResizeObserver) new ResizeObserver(() => { copyW = copy.offsetWidth; }).observe(copy);
+  else window.addEventListener("resize", () => { copyW = copy.offsetWidth; });
+  if (window.IntersectionObserver) new IntersectionObserver((en) => { visivel = en[0].isIntersecting; }, { rootMargin: "100px" }).observe(viewport);
+  let last = performance.now();
+  function tick(ts) {
+    const dt = Math.min((ts - last) / 1000, 0.1); last = ts;
+    const w = copyW;
+    if (w > 0 && visivel) {
+      if (st.drag) {} else if (st.target !== null) {
+        const d = st.target - st.pos;
+        if (Math.abs(d) < 0.5) { st.pos = st.target; st.target = null; } else st.pos += d * Math.min(1, dt * 9);
+      } else if (!st.paused && !reduced) st.pos += (w / 14) * dt;
+      if (st.pos >= w) { st.pos -= w; if (st.target !== null) st.target -= w; if (st.drag) st.drag.pos -= w; }
+      else if (st.pos < 0) { st.pos += w; if (st.target !== null) st.target += w; if (st.drag) st.drag.pos += w; }
+      track.style.transform = `translate3d(${-st.pos}px,0,0)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  const step = (dir) => { const c = copy.querySelector("article"); st.target = (st.target ?? st.pos) + dir * (c ? c.offsetWidth : 280); };
+  $("styles-prev").onclick = () => step(-1);
+  $("styles-next").onclick = () => step(1);
+  const box = $("styles");
+  box.addEventListener("mouseenter", () => st.paused = true);
+  box.addEventListener("mouseleave", () => { st.paused = false; st.drag = null; viewport.classList.remove("dragging"); });
+  box.addEventListener("focusin", () => st.paused = true);
+  box.addEventListener("focusout", () => st.paused = false);
+  viewport.addEventListener("pointerdown", (e) => { st.drag = { x: e.clientX, pos: st.pos }; st.target = null; st.moved = 0; viewport.classList.add("dragging"); });
+  viewport.addEventListener("pointermove", (e) => { if (st.drag) { st.moved = Math.abs(e.clientX - st.drag.x); st.pos = st.drag.pos - (e.clientX - st.drag.x); } });
+  const end = () => { st.drag = null; viewport.classList.remove("dragging"); };
+  viewport.addEventListener("pointerup", end);
+  viewport.addEventListener("pointercancel", end);
+  viewport.addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-estilo]");
+    if (!a) return;
+    if (st.moved > 6) { e.preventDefault(); return; }
+    $("estilo").value = a.dataset.estilo;
+  });
+})();
+
+/* Portfólio + lightbox */
+(function () {
+  const grid = $("portfolio-grid");
+  grid.innerHTML = site.portfolio.map((f, i) => `<button type="button" class="pf-item" data-i="${i}" aria-label="Ampliar: ${esc(f.alt)}">${media(f.src, f.alt, f.motivo, true, "(min-width: 768px) 23rem, 50vw")}</button>`).join("");
+  const lb = $("lightbox");
+  let cur = null, opener = null;
+  const n = site.portfolio.length;
+  function show(i) {
+    cur = (i + n) % n;
+    const f = site.portfolio[cur];
+    $("lb-media").innerHTML = media(f.src, f.alt, f.motivo, false);
+    $("lb-caption").textContent = f.alt;
+  }
+  function open(i, btn) { opener = btn; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; $("lb-close").focus(); }
+  function close() { lb.hidden = true; cur = null; document.body.style.overflow = ""; if (opener) opener.focus(); }
+  grid.addEventListener("click", (e) => { const b = e.target.closest(".pf-item"); if (b) open(+b.dataset.i, b); });
+  lb.addEventListener("click", (e) => { if (e.target === lb || e.target.id === "lb-caption") close(); });
+  $("lb-close").onclick = close;
+  $("lb-prev").onclick = (e) => { e.stopPropagation(); show(cur - 1); };
+  $("lb-next").onclick = (e) => { e.stopPropagation(); show(cur + 1); };
+  window.addEventListener("keydown", (e) => {
+    if (cur === null) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") show(cur + 1);
+    if (e.key === "ArrowLeft") show(cur - 1);
+  });
+})();
+
+/* Avaliações: carrossel com avanço automático a cada 4 s */
+(function () {
+  const box = $("reviews"), wrap = $("reviews-box");
+  if (!site.avaliacoes.length) return;
+  $("avaliacoes").hidden = false;
+  const gl = site.google;
+  if (gl.link) { $("rating").href = gl.link; $("rating-link").href = gl.link; } else { $("rating").removeAttribute("href"); $("rating-link").hidden = true; }
+  if (gl.nota && gl.total) {
+    $("rating-num").textContent = gl.nota;
+    $("rating-count").textContent = `${gl.total} avaliações`;
+    $("rating").setAttribute("aria-label", `Nota ${gl.nota} de 5 no Google, com ${gl.total} avaliações`);
+  } else $("rating").hidden = true;
+  const g = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+  const stars = Array.from({ length: 5 }, () => '<svg aria-hidden="true"><use href="#i-star"/></svg>').join("");
+  box.innerHTML = site.avaliacoes.map((a) => {
+    const ini = a.nome.split(" ").slice(0, 2).map((p) => p[0]).join("");
+    return `<article class="review"><div class="review-head"><div class="avatar" aria-hidden="true">${ini}</div><div style="min-width:0"><h3>${esc(a.nome)}</h3><time>${a.tempo}</time></div><span class="g-badge" role="img" aria-label="Avaliação do Google">${g}</span></div><div class="stars" role="img" aria-label="5 de 5 estrelas">${stars}</div><p>${esc(a.texto)}</p></article>`;
+  }).join("");
+  let paused = false;
+  function scroll(dir) {
+    const c = box.querySelector("article"), w = (c ? c.offsetWidth : box.clientWidth) + 16;
+    const atEnd = box.scrollLeft + box.clientWidth >= box.scrollWidth - 8, atStart = box.scrollLeft <= 8;
+    const behavior = reduced ? "auto" : "smooth";
+    if (dir === 1 && atEnd) return box.scrollTo({ left: 0, behavior });
+    if (dir === -1 && atStart) return box.scrollTo({ left: box.scrollWidth, behavior });
+    box.scrollBy({ left: dir * w, behavior });
+  }
+  $("rev-prev").onclick = () => scroll(-1);
+  $("rev-next").onclick = () => scroll(1);
+  ["mouseenter", "focusin", "pointerdown"].forEach((ev) => wrap.addEventListener(ev, () => paused = true));
+  ["mouseleave", "focusout", "pointerup"].forEach((ev) => wrap.addEventListener(ev, () => paused = false));
+  if (!reduced) setInterval(() => { if (!paused && !document.hidden) scroll(1); }, 4000);
+})();
+
+/* Formulário → mensagem pronta no WhatsApp */
+(function () {
+  const fill = (id, opts) => { $(id).innerHTML = '<option value="" disabled selected hidden></option>' + opts.map((o) => `<option>${o}</option>`).join(""); };
+  fill("local", site.locais); fill("tamanho", site.tamanhos); fill("estilo", site.estilosForm); fill("investimento", site.investimentos);
+  const form = $("quote-form"), err = $("form-error"), btn = $("submit-btn"), label = $("submit-label");
+  /* celular: DDD + 9 + 8 dígitos, ex.: 11999999999 */
+  function soDigitos(v) {
+    let d = String(v || "").replace(/\D/g, "");
+    if (d.length > 11 && d.startsWith("55")) d = d.slice(2);
+    return d.slice(0, 11);
+  }
+  function normPhone(v) {
+    const d = soDigitos(v);
+    return /^[1-9]{2}9\d{8}$/.test(d) ? d : null;
+  }
+  /* máscara enquanto digita: (11) 99999-9999 */
+  function mascara(d) {
+    if (!d) return "";
+    if (d.length <= 2) return `(${d}`;
+    if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  }
+  const tel = $("whatsapp");
+  tel.addEventListener("input", () => {
+    const novo = mascara(soDigitos(tel.value));
+    if (tel.value !== novo) { tel.value = novo; try { tel.setSelectionRange(novo.length, novo.length); } catch (e) {} }
+  });
+  function fmt(d) { return d.length === 11 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`; }
+  let ultimoEnvio = "";
+  /* MODO DE TESTE: abra o site com ?teste no fim do endereço (seusite.com.br/?teste).
+     Mostra cada etapa do envio na tela e não redireciona sozinho. */
+  const VERSAO = "22/10/2026 17:20";
+  const modoTeste = /(^|[?&#])teste\b/.test(location.search.slice(1) + "&" + location.hash.slice(1));
+  let painel = null;
+  function log(m) {
+    try { console.log("[orcamento]", m); } catch (e) {}
+    if (!modoTeste) return;
+    if (!painel) {
+      painel = document.createElement("pre");
+      painel.style.cssText = "white-space:pre-wrap;font:12px/1.5 ui-monospace,monospace;background:var(--card);border:1px solid var(--border);border-radius:.5rem;padding:.75rem;margin:0;overflow-x:auto";
+      form.appendChild(painel);
+    }
+    painel.textContent += m + "\n";
+  }
+  if (modoTeste) {
+    log("Modo de teste ativo. Versão do site: " + VERSAO);
+    log("sendBeacon disponível: " + !!navigator.sendBeacon + " | fetch disponível: " + !!window.fetch);
+    window.addEventListener("error", (ev) => log("ERRO na página: " + ev.message));
+    window.addEventListener("unhandledrejection", (ev) => log("ERRO (promise): " + (ev.reason && ev.reason.message || ev.reason)));
+  }
+  const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+  /* Envia os campos ao Make. Nunca trava: qualquer erro é ignorado e o WhatsApp abre do mesmo jeito. */
+  function enviarWebhook(dados) {
+    try {
+      const chave = JSON.stringify(Object.assign({}, dados, { data_envio: "", pagina: "" }));
+      if (!site.webhook || chave === ultimoEnvio) return Promise.resolve(); /* evita duplicar o mesmo orçamento */
+      ultimoEnvio = chave;
+      const corpo = new URLSearchParams(dados).toString();
+      /* reserva: sendBeacon (só se o fetch for recusado) */
+      const viaBeacon = (motivo) => {
+        let ok = false;
+        try {
+          if (navigator.sendBeacon) ok = navigator.sendBeacon(site.webhook, new Blob([corpo], { type: "application/x-www-form-urlencoded" }));
+        } catch (e) {}
+        log("Fetch falhou (" + motivo + "). Reserva sendBeacon: " + (ok ? "colocado na fila" : "também recusado"));
+      };
+      /* principal: fetch, que avisa se o Make respondeu. Espera no máximo 4 s antes de seguir para o WhatsApp. */
+      log("Webhook: enviando para o Make…");
+      let envio;
+      try {
+        envio = fetch(site.webhook, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: corpo })
+          .then(() => log("Webhook: o Make recebeu o envio ✓"))
+          .catch((e) => viaBeacon(e && e.message || "erro de rede"));
+      } catch (e) {
+        viaBeacon(e && e.message || "erro");
+        return espera(400);
+      }
+      return Promise.race([envio, espera(4000).then(() => log("Webhook: sem resposta em 4 s, seguindo assim mesmo"))]);
+    } catch (e) {
+      log("Webhook: ERRO " + (e && e.message));
+      return Promise.resolve();
+    }
+  }
+  /* data e hora no padrão brasileiro, horário de Brasília: 22/10/2026 16:54:12 */
+  function dataBR(d = new Date()) {
+    try {
+      const p = new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }).formatToParts(d);
+      const g = (t) => (p.find((x) => x.type === t) || {}).value;
+      return `${g("day")}/${g("month")}/${g("year")} ${g("hour")}:${g("minute")}:${g("second")}`;
+    } catch (e) {
+      return d.toLocaleString("pt-BR");
+    }
+  }
+  let enviando = false;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const v = (id) => $(id).value.trim();
+    if ($("website").value) return;
+    let msg = "";
+    const phone = normPhone(v("whatsapp"));
+    if (!v("nome")) msg = "Informe seu nome.";
+    else if (!phone) msg = "Digite o DDD e o celular com o 9. Ex.: (11) 99999-9999";
+    else if (!v("local")) msg = "Escolha o local do corpo.";
+    else if (!v("tamanho")) msg = "Escolha o tamanho aproximado.";
+    else if (!v("estilo")) msg = "Escolha o estilo da tatuagem.";
+    else if (!v("investimento")) msg = "Escolha o seu orçamento para essa tatuagem.";
+    else if (!v("ideia")) msg = "Conte sua ideia de tatuagem.";
+    if (!msg && !site.whatsappBase) msg = "O WhatsApp da Giulia ainda não foi configurado no site.";
+    if (msg) { err.textContent = msg; err.hidden = false; return; }
+    if (enviando) return;
+    err.hidden = true;
+    const linhas = [
+      site.mensagemWhatsApp,
+      `*Nome:* ${v("nome")}`,
+      `*WhatsApp:* ${fmt(phone)}`,
+      v("local") && `*Local do corpo:* ${v("local")}`,
+      v("tamanho") && `*Tamanho aproximado:* ${v("tamanho")}`,
+      v("estilo") && `*Estilo:* ${v("estilo")}`,
+      v("investimento") && `*Orçamento:* ${v("investimento")}`,
+      `*Ideia:* ${v("ideia")}`,
+    ].filter(Boolean).join("\n");
+    const dados = {
+      nome: v("nome"),
+      whatsapp: fmt(phone),
+      whatsapp_numero: "55" + phone,
+      local_do_corpo: v("local"),
+      tamanho: v("tamanho"),
+      estilo: v("estilo"),
+      orcamento: v("investimento"),
+      ideia: v("ideia"),
+      data_envio: dataBR(),
+      pagina: location.href,
+    };
+    const urlWhatsApp = `${site.whatsappBase}?text=${encodeURIComponent(linhas)}`;
+    enviando = true; btn.disabled = true; label.textContent = "Enviando…";
+    log("Formulário válido. Dados: " + JSON.stringify(dados));
+    /* Meta Pixel: registra o envio do formulário como Lead */
+    try { if (window.fbq) { fbq("track", "Lead", { content_name: "Orçamento de tatuagem", content_category: dados.estilo }); log("Meta Pixel: evento Lead enviado"); } } catch (e) {}
+    try { await enviarWebhook(dados); } catch (e) { log("ERRO no envio: " + (e && e.message)); }
+    if (modoTeste) {
+      log("Redirecionaria para: " + urlWhatsApp.slice(0, 80) + "…");
+      const a = document.createElement("a"); a.href = urlWhatsApp; a.textContent = "Continuar para o WhatsApp"; a.className = "link-accent";
+      form.appendChild(a); enviando = false; btn.disabled = false; label.textContent = "Quero receber meu orçamento";
+      return;
+    }
+    window.location.href = urlWhatsApp;
+    setTimeout(() => { enviando = false; btn.disabled = false; label.textContent = "Quero receber meu orçamento"; }, 3000);
+  });
+})();
+
+$("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
