@@ -348,6 +348,49 @@ footer { border-top-color: rgba(206, 101, 6, .4); }
 .lb-btn:hover { background: var(--laranja); }
 .lb-caption { color: rgba(255, 255, 255, .8); }
 
+/* FORMULÁRIO EM ETAPAS (uma pergunta por vez) */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.quiz { margin-top: 2.25rem; display: block; }
+.q-progress { margin-bottom: 1.75rem; }
+.q-progress-top { display: flex; justify-content: space-between; font-size: .75rem; letter-spacing: .24em; text-transform: uppercase; color: var(--laranja); margin-bottom: .6rem; }
+.q-progress-top #q-pct { color: var(--muted-fg); letter-spacing: .1em; }
+.q-bar { height: 2px; background: rgba(255, 255, 255, .12); overflow: hidden; }
+.q-bar span { display: block; height: 100%; width: 20%; background: var(--laranja); transition: width .45s cubic-bezier(.2, .7, .2, 1); }
+.q-step { border: 0; margin: 0; padding: 0; min-width: 0; }
+.q-step.q-in { animation: q-in .42s cubic-bezier(.2, .7, .2, 1) both; }
+.q-step.q-in.q-voltando { animation-name: q-in-back; }
+@keyframes q-in { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@keyframes q-in-back { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+.q-title { padding: 0; font-family: var(--font-display); font-weight: 300; font-size: clamp(1.75rem, 7.5vw, 2.25rem); line-height: 1.12; color: var(--branco); outline: none; }
+.q-hint { margin-top: .6rem; font-size: .875rem; color: var(--muted-fg); line-height: 1.6; }
+.q-opts { margin-top: 1.5rem; display: grid; gap: .65rem; }
+@media (min-width: 560px) { .q-opts-2 { grid-template-columns: 1fr 1fr; } }
+.q-opt { position: relative; display: block; margin: 0; cursor: pointer; }
+.q-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.q-opt span {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.6rem; padding: .9rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, .16); background: #1B1B1B; color: var(--branco); font-size: 1rem; line-height: 1.3;
+  transition: border-color .2s, background .2s;
+}
+.q-opt span::after { content: ""; flex: none; width: 1.1rem; height: 1.1rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .35); transition: background .2s, border-color .2s, box-shadow .2s; }
+@media (hover: hover) { .q-opt:hover span { border-color: rgba(206, 101, 6, .6); } }
+.q-opt input:checked + span { border-color: var(--laranja); background: rgba(206, 101, 6, .12); }
+.q-opt input:checked + span::after { background: var(--laranja); border-color: var(--laranja); box-shadow: inset 0 0 0 3px #1B1B1B; }
+.q-opt input:focus-visible + span { outline: 2px solid var(--laranja); outline-offset: 2px; }
+.quiz textarea { margin-top: 1.25rem; min-height: 9rem; font-size: 1rem; }
+.q-fields { margin-top: 1.5rem; display: grid; gap: 1.1rem; }
+.quiz input:not([type="hidden"]):not(.hp) { min-height: 3.25rem; font-size: 1rem; }
+.q-opt-tag { margin-left: .35rem; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); }
+.quiz .form-error { margin-top: 1rem; }
+.q-nav { margin-top: 1.75rem; display: flex; align-items: center; gap: .75rem; }
+.q-nav .btn { flex: 1; min-height: 3.5rem; }
+.q-back { display: inline-flex; align-items: center; gap: .35rem; min-height: 3.5rem; padding: 0 .9rem 0 .4rem; border: 0; background: none; color: var(--muted-fg); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+.q-back:hover { color: var(--laranja); }
+.q-back .icon { width: 1.15rem; height: 1.15rem; }
+@media (min-width: 640px) { .q-nav .btn { flex: 0 1 auto; min-width: 14rem; margin-left: auto; } .q-nav .btn-wa { min-width: 0; } }
+@media (max-width: 480px) { .q-nav { flex-wrap: wrap; } .q-nav .q-submit { flex: 1 1 100%; order: -1; } }
+@media (prefers-reduced-motion: reduce) { .q-step.q-in { animation: none; } .q-bar span { transition: none; } }
+
 /* AJUSTES DE CELULAR */
 /* Carrossel de estilos: bordas esmaecidas para os cards cortados não mostrarem texto pela metade */
 .styles-viewport { -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
@@ -476,40 +519,65 @@ src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
       <div class="form-wrap">
         <h2 class="h2">Faça seu orçamento</h2>
         <p class="lead" style="max-width:none">Preencha rapidinho e continue a conversa pelo WhatsApp com tudo já organizado.</p>
-        <form id="quote-form" novalidate>
+        <form id="quote-form" class="quiz" novalidate>
           <input type="text" name="website" id="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div>
-            <label for="nome">Seu nome</label>
-            <input id="nome" name="nome" required maxlength="100" autocomplete="name" placeholder="Como posso te chamar?">
+          <input type="hidden" id="estilo" name="estilo">
+          <input type="hidden" id="tamanho" name="tamanho">
+          <input type="hidden" id="local" name="local">
+
+          <div class="q-progress" aria-hidden="true">
+            <div class="q-progress-top"><span id="q-count">Etapa 1 de 5</span><span id="q-pct">20%</span></div>
+            <div class="q-bar"><span id="q-bar-fill"></span></div>
           </div>
-          <div>
-            <label for="whatsapp">Seu WhatsApp</label>
-            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" required maxlength="15" placeholder="(61) 99999-9999">
-          </div>
-          <div class="row2">
-            <div>
-              <label for="local">Local do corpo</label>
-              <select id="local" name="local" required></select>
+          <p class="sr-only" id="q-status" aria-live="polite"></p>
+
+          <fieldset class="q-step" data-step="1" data-campo="estilo">
+            <legend class="q-title" tabindex="-1">Qual estilo você procura?</legend>
+            <div class="q-opts" data-opcoes="estilosForm"></div>
+          </fieldset>
+
+          <fieldset class="q-step" data-step="2" data-campo="tamanho" hidden>
+            <legend class="q-title" tabindex="-1">Qual o tamanho aproximado?</legend>
+            <div class="q-opts" data-opcoes="tamanhos"></div>
+          </fieldset>
+
+          <fieldset class="q-step" data-step="3" data-campo="local" hidden>
+            <legend class="q-title" tabindex="-1">Em qual região do corpo?</legend>
+            <div class="q-opts q-opts-2" data-opcoes="locais"></div>
+          </fieldset>
+
+          <fieldset class="q-step" data-step="4" hidden>
+            <legend class="q-title" tabindex="-1">Conte sua ideia</legend>
+            <p class="q-hint">Tema, referências, significado… quanto mais detalhes, melhor.</p>
+            <label class="sr-only" for="ideia">Ideia da tatuagem</label>
+            <textarea id="ideia" name="ideia" rows="5" maxlength="1000" placeholder="Ex.: uma rosa em fine line com o nome da minha mãe"></textarea>
+          </fieldset>
+
+          <fieldset class="q-step" data-step="5" hidden>
+            <legend class="q-title" tabindex="-1">Para onde enviamos seu orçamento?</legend>
+            <div class="q-fields">
+              <div>
+                <label for="nome">Seu nome</label>
+                <input id="nome" name="nome" maxlength="100" autocomplete="name" enterkeyhint="next" placeholder="Como posso te chamar?">
+              </div>
+              <div>
+                <label for="whatsapp">Seu WhatsApp</label>
+                <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="15" enterkeyhint="next" placeholder="(15) 99999-9999">
+              </div>
+              <div>
+                <label for="instagram">Instagram <span class="q-opt-tag">opcional</span></label>
+                <input id="instagram" name="instagram" maxlength="60" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="send" placeholder="@seuperfil">
+              </div>
             </div>
-            <div>
-              <label for="tamanho">Tamanho aproximado</label>
-              <select id="tamanho" name="tamanho" required></select>
-            </div>
-          </div>
-          <div>
-            <label for="estilo">Estilo da tatuagem</label>
-            <select id="estilo" name="estilo" required></select>
-          </div>
-          <div>
-            <label for="investimento">Qual o seu orçamento para essa tatuagem?</label>
-            <select id="investimento" name="investimento" required></select>
-          </div>
-          <div>
-            <label for="ideia">Ideia da tatuagem</label>
-            <textarea id="ideia" name="ideia" required rows="3" maxlength="1000" placeholder="Conte o que você imagina: tema, referências, significado…"></textarea>
-          </div>
+          </fieldset>
+
           <p class="form-error" id="form-error" role="alert" hidden></p>
-          <button type="submit" class="btn btn-block btn-wa" id="submit-btn"><svg class="icon icon-wa"><use href="#i-wa"/></svg><span id="submit-label">Quero receber meu orçamento</span></button>
+
+          <div class="q-nav">
+            <button type="button" class="q-back" id="q-back" hidden><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Voltar</button>
+            <button type="button" class="btn q-next" id="q-next" hidden>Continuar</button>
+            <button type="submit" class="btn btn-wa q-submit" id="submit-btn" hidden><svg class="icon icon-wa"><use href="#i-wa"/></svg><span id="submit-label">Quero receber meu orçamento</span></button>
+          </div>
         </form>
       </div>
     </div>
@@ -707,9 +775,70 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
 
 /* Formulário → mensagem pronta no WhatsApp */
 (function () {
-  const fill = (id, opts) => { $(id).innerHTML = '<option value="" disabled selected hidden></option>' + opts.map((o) => `<option>${o}</option>`).join(""); };
-  fill("local", site.locais); fill("tamanho", site.tamanhos); fill("estilo", site.estilosForm); fill("investimento", site.investimentos);
   const form = $("quote-form"), err = $("form-error"), btn = $("submit-btn"), label = $("submit-label");
+
+  /* Etapas: uma pergunta por vez */
+  const passos = [...form.querySelectorAll(".q-step")];
+  const total = passos.length;
+  let atual = 0;
+  const reduz = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  form.querySelectorAll(".q-opts").forEach((box) => {
+    const campo = box.closest(".q-step").dataset.campo;
+    box.innerHTML = (site[box.dataset.opcoes] || []).map((o) =>
+      `<label class="q-opt"><input type="radio" name="op-${campo}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join("");
+    box.addEventListener("change", (e) => {
+      if (!e.target.matches("input[type=radio]")) return;
+      $(campo).value = e.target.value;
+      err.hidden = true;
+      setTimeout(() => irPara(atual + 1), reduz ? 0 : 260); /* avança sozinho depois de escolher */
+    });
+  });
+  function validarPasso(i) {
+    const p = passos[i];
+    if (p.dataset.campo && !$(p.dataset.campo).value) return "Escolha uma opção para continuar.";
+    if (i === 3 && !$("ideia").value.trim()) return "Conte um pouco da sua ideia para continuar.";
+    return "";
+  }
+  function irPara(i, voltando = false) {
+    if (i < 0 || i >= total || i === atual) return;
+    if (!voltando) { const m = validarPasso(atual); if (m) { err.textContent = m; err.hidden = false; return; } }
+    err.hidden = true;
+    passos[atual].hidden = true;
+    atual = i;
+    const p = passos[atual];
+    p.hidden = false;
+    p.classList.remove("q-in", "q-voltando"); void p.offsetWidth;
+    p.classList.add("q-in"); if (voltando) p.classList.add("q-voltando");
+    atualizarNav();
+    const topo = form.getBoundingClientRect().top;
+    if (topo < 0 || topo > innerHeight * .4) form.scrollIntoView({ behavior: reduz ? "auto" : "smooth", block: "start" });
+    const alvo = atual === 3 ? $("ideia") : atual === 4 ? $("nome") : p.querySelector(".q-title");
+    setTimeout(() => { try { alvo.focus({ preventScroll: true }); } catch (e) {} }, reduz ? 0 : 120);
+  }
+  function atualizarNav() {
+    const pct = Math.round(((atual + 1) / total) * 100);
+    $("q-bar-fill").style.width = pct + "%";
+    $("q-count").textContent = `Etapa ${atual + 1} de ${total}`;
+    $("q-pct").textContent = pct + "%";
+    $("q-status").textContent = `Etapa ${atual + 1} de ${total}: ${passos[atual].querySelector(".q-title").textContent}`;
+    $("q-back").hidden = atual === 0;
+    const escolha = !!passos[atual].dataset.campo;
+    /* nas perguntas de múltipla escolha, "Continuar" só aparece quando já há resposta (ao voltar) */
+    $("q-next").hidden = atual === total - 1 || (escolha && !$(passos[atual].dataset.campo).value);
+    btn.hidden = atual !== total - 1;
+  }
+  $("q-next").addEventListener("click", () => irPara(atual + 1));
+  $("q-back").addEventListener("click", () => irPara(atual - 1, true));
+  /* Enter: avança entre os campos de contato e envia no último */
+  ["nome", "whatsapp", "instagram"].forEach((id, k, ids) => {
+    $(id).addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      if (k < ids.length - 1) $(ids[k + 1]).focus(); else form.requestSubmit ? form.requestSubmit(btn) : btn.click();
+    });
+  });
+  atualizarNav();
+
   /* celular: DDD + 9 + 8 dígitos, ex.: 61996511893 */
   function soDigitos(v) {
     let d = String(v || "").replace(/\D/g, "");
@@ -736,7 +865,7 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
   let ultimoEnvio = "";
   /* MODO DE TESTE: abra o site com ?teste no fim do endereço (seusite.com.br/?teste).
      Mostra cada etapa do envio na tela e não redireciona sozinho. */
-  const VERSAO = "22/10/2026 17:20";
+  const VERSAO = "12/11/2026 15:30";
   const modoTeste = /(^|[?&#])teste\b/.test(location.search.slice(1) + "&" + location.hash.slice(1));
   let painel = null;
   function log(m) {
@@ -805,13 +934,10 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
     if ($("website").value) return;
     let msg = "";
     const phone = normPhone(v("whatsapp"));
-    if (!v("nome")) msg = "Informe seu nome.";
-    else if (!phone) msg = "Digite o DDD e o celular com o 9. Ex.: (61) 99999-9999";
-    else if (!v("local")) msg = "Escolha o local do corpo.";
-    else if (!v("tamanho")) msg = "Escolha o tamanho aproximado.";
-    else if (!v("estilo")) msg = "Escolha o estilo da tatuagem.";
-    else if (!v("investimento")) msg = "Escolha o seu orçamento para essa tatuagem.";
-    else if (!v("ideia")) msg = "Conte sua ideia de tatuagem.";
+    const insta = v("instagram").replace(/^@+/, "").replace(/\s+/g, "");
+    for (let i = 0; i < total - 1 && !msg; i++) { msg = validarPasso(i); if (msg) { irPara(i, true); } }
+    if (!msg && !v("nome")) msg = "Informe seu nome.";
+    else if (!msg && !phone) msg = "Digite o DDD e o celular com o 9. Ex.: (15) 99999-9999";
     if (msg) { err.textContent = msg; err.hidden = false; return; }
     if (enviando) return;
     err.hidden = true;
@@ -819,20 +945,21 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
       site.mensagemWhatsApp,
       `*Nome:* ${v("nome")}`,
       `*WhatsApp:* ${fmt(phone)}`,
-      v("local") && `*Local do corpo:* ${v("local")}`,
-      v("tamanho") && `*Tamanho aproximado:* ${v("tamanho")}`,
+      insta && `*Instagram:* @${insta}`,
       v("estilo") && `*Estilo:* ${v("estilo")}`,
-      v("investimento") && `*Orçamento:* ${v("investimento")}`,
+      v("tamanho") && `*Tamanho aproximado:* ${v("tamanho")}`,
+      v("local") && `*Região do corpo:* ${v("local")}`,
       `*Ideia:* ${v("ideia")}`,
     ].filter(Boolean).join("\n");
     const dados = {
       nome: v("nome"),
       whatsapp: fmt(phone),
       whatsapp_numero: "55" + phone,
+      instagram: insta ? "@" + insta : "",
       local_do_corpo: v("local"),
       tamanho: v("tamanho"),
       estilo: v("estilo"),
-      orcamento: v("investimento"),
+      orcamento: "",
       ideia: v("ideia"),
       data_envio: dataBR(),
       pagina: location.href,
