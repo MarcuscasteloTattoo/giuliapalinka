@@ -350,13 +350,6 @@ footer { border-top-color: rgba(206, 101, 6, .4); }
 
 /* FORMULÁRIO EM ETAPAS (uma pergunta por vez) */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.q-precos { margin-top: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid var(--border); }
-.q-precos > div { padding: 1.1rem .75rem; display: grid; grid-template-rows: 1fr auto auto; gap: .15rem; text-align: center; }
-.q-precos > div + div { border-left: 1px solid var(--border); }
-.q-precos span { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-fg); }
-.q-precos small { margin-top: .35rem; font-size: .8rem; color: var(--muted-fg); }
-.q-precos strong { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.9rem, 8vw, 2.4rem); line-height: 1; color: var(--laranja); white-space: nowrap; }
-.q-precos-nota { margin-top: .85rem; font-size: .85rem; line-height: 1.6; color: var(--muted-fg); text-align: center; }
 .quiz { margin-top: 2.25rem; display: block; }
 .q-progress { margin-bottom: 1.75rem; }
 .q-progress-top { display: flex; justify-content: space-between; font-size: .75rem; letter-spacing: .24em; text-transform: uppercase; color: var(--laranja); margin-bottom: .6rem; }
@@ -525,12 +518,7 @@ src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
     <div class="wrap section">
       <div class="form-wrap">
         <h2 class="h2">Faça seu orçamento</h2>
-        <p class="lead" style="max-width:none">Responda algumas perguntas rápidas e continue a conversa pelo WhatsApp com tudo já organizado.</p>
-        <div class="q-precos">
-          <div><span>Minha sessão</span><small>a partir de</small><strong>R$ 650</strong></div>
-          <div><span>Trabalhos menores</span><small>a partir de</small><strong>R$ 250</strong></div>
-        </div>
-        <p class="q-precos-nota">O valor final de cada projeto sempre depende de quantas sessões ele vai levar.</p>
+        <p class="lead" style="max-width:none">Minha sessão é a partir de R$ 650 e trabalhos menores a partir de R$ 250. O valor final de cada projeto sempre depende de quantas sessões ele vai levar. Responda algumas perguntas rápidas e continue a conversa pelo WhatsApp com tudo já organizado.</p>
         <form id="quote-form" class="quiz" novalidate>
           <input type="text" name="website" id="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input type="hidden" id="estilo" name="estilo">
