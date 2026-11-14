@@ -6,12 +6,12 @@
 <title>Giulia Palinka Tattoo</title>
 <meta name="description" content="Tatuagens autorais em traços finos e delicados. Conheça o trabalho da tatuadora Giulia Palinka e solicite seu orçamento pelo WhatsApp.">
 <link rel="icon" type="image/png" href="favicon-gp.png">
-<link rel="preload" as="image" href="assets/banner-2-m.webp" imagesrcset="assets/banner-2-m-640.webp 640w, assets/banner-2-m.webp 1000w" imagesizes="(min-width: 1024px) 50vw, (min-width: 600px) 34rem, 100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-800.webp" imagesrcset="assets/hero-480.webp 480w, assets/hero-800.webp 800w, assets/hero-1000.webp 1000w" imagesizes="(min-width: 1024px) 50vw, (min-width: 600px) 34rem, 100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Archivo:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Archivo:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Archivo:wght@300;400;500;600&display=swap"></noscript>
 <style>
 body { margin: 0; }
 img { max-width: 100%; }
@@ -429,17 +429,20 @@ footer { border-top-color: rgba(206, 101, 6, .4); }
 <meta property="og:description" content="Tatuagens autorais em traços finos e delicados. Orçamento pelo WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="assets/banner-2-m.webp">
+<meta property="og:image" content="assets/hero-1000.webp">
 <link rel="apple-touch-icon" href="apple-touch-icon-gp.png">
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (carregamento adiado para não atrasar a página; PageView e Lead ficam na fila e são enviados assim que o script carrega) -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+n.queue=[];
+var carregar=function(){if(f.__fbqLoaded)return;f.__fbqLoaded=1;t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);};
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){f.addEventListener(ev,carregar,{once:true,passive:true});});
+f.addEventListener('load',function(){setTimeout(carregar,4000);});
+f.__fbqCarregar=carregar;
+}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1431607248384524');
 fbq('track', 'PageView');
@@ -465,7 +468,7 @@ src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
 
 <header class="hero">
   <div class="hero-photo">
-    <img src="assets/banner-2-m.webp" srcset="assets/banner-2-m-640.webp 640w, assets/banner-2-m.webp 1000w" sizes="(min-width: 1024px) 50vw, (min-width: 600px) 34rem, 100vw" width="1000" height="1250" alt="Giulia Palinka no estúdio, de máscara, olhando para a câmera pela porta entreaberta" fetchpriority="high" decoding="async">
+    <img src="assets/hero-800.webp" srcset="assets/hero-480.webp 480w, assets/hero-800.webp 800w, assets/hero-1000.webp 1000w" sizes="(min-width: 1024px) 50vw, (min-width: 600px) 34rem, 100vw" width="1000" height="1250" alt="Giulia Palinka no estúdio, de máscara, olhando para a câmera pela porta entreaberta" fetchpriority="high" decoding="async">
   </div>
   <div class="wrap hero-inner">
     <div class="hero-copy">
@@ -689,7 +692,7 @@ function srcset(src, sizes) {
   return ` srcset="${src.replace(/\.webp$/, "-480.webp")} 480w, ${src} 900w" sizes="${sizes}"`;
 }
 function media(src, alt, motivo, lazy = true, sizes = "") {
-  return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
+  return src ? `<span class="ph"><img src="${esc(src)}"${srcset(src, sizes)} alt="${esc(alt)}" width="900" height="1200" ${lazy ? 'loading="lazy"' : ""} decoding="async" draggable="false"></span>` : placeholder(motivo, alt);
 }
 
 /* Onde estamos? — mapa do Google */
@@ -981,7 +984,7 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
     enviando = true; btn.disabled = true; label.textContent = "Enviando…";
     log("Formulário válido. Dados: " + JSON.stringify(dados));
     /* Meta Pixel: registra o envio do formulário como Lead */
-    try { if (window.fbq) { fbq("track", "Lead", { content_name: "Orçamento de tatuagem", content_category: dados.estilo }); log("Meta Pixel: evento Lead enviado"); } } catch (e) {}
+    try { if (window.__fbqCarregar) window.__fbqCarregar(); if (window.fbq) { fbq("track", "Lead", { content_name: "Orçamento de tatuagem", content_category: dados.estilo }); log("Meta Pixel: evento Lead enviado"); } } catch (e) {}
     try { await enviarWebhook(dados); } catch (e) { log("ERRO no envio: " + (e && e.message)); }
     if (modoTeste) {
       log("Redirecionaria para: " + urlWhatsApp.slice(0, 80) + "…");
