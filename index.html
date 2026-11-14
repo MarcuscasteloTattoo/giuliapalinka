@@ -984,8 +984,24 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
     enviando = true; btn.disabled = true; label.textContent = "Enviando…";
     log("Formulário válido. Dados: " + JSON.stringify(dados));
     /* Meta Pixel: registra o envio do formulário como Lead */
-    try { if (window.__fbqCarregar) window.__fbqCarregar(); if (window.fbq) { fbq("track", "Lead", { content_name: "Orçamento de tatuagem", content_category: dados.estilo }); log("Meta Pixel: evento Lead enviado"); } } catch (e) {}
-    try { await enviarWebhook(dados); } catch (e) { log("ERRO no envio: " + (e && e.message)); }
+    /* Meta Pixel: formulário preenchido por completo = Lead + CompleteRegistration (conversão).
+       O mesmo eventID nos dois evita contagem duplicada se a API de Conversões for ligada depois. */
+    const pixelId = "orc-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8);
+    const pixelDados = { content_name: "Orçamento de tatuagem", content_category: dados.estilo, status: "formulario_completo" };
+    try {
+      if (window.__fbqCarregar) window.__fbqCarregar();
+      if (window.fbq) {
+        fbq("track", "Lead", pixelDados, { eventID: pixelId + "-lead" });
+        fbq("track", "CompleteRegistration", pixelDados, { eventID: pixelId + "-cr" });
+        log("Meta Pixel: eventos Lead e CompleteRegistration enviados");
+      }
+    } catch (e) {}
+    /* se o script do Facebook ainda não terminou de baixar, espera até 1,5 s para os eventos saírem antes do WhatsApp abrir */
+    const pixelPronto = () => new Promise((ok) => {
+      const t0 = Date.now();
+      (function checa() { if (!window.fbq || window.fbq.callMethod || Date.now() - t0 > 1500) ok(); else setTimeout(checa, 100); })();
+    });
+    try { await Promise.all([enviarWebhook(dados), pixelPronto()]); } catch (e) { log("ERRO no envio: " + (e && e.message)); }
     if (modoTeste) {
       log("Redirecionaria para: " + urlWhatsApp.slice(0, 80) + "…");
       const a = document.createElement("a"); a.href = urlWhatsApp; a.textContent = "Continuar para o WhatsApp"; a.className = "link-accent";
