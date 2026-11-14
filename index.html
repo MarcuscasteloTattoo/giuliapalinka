@@ -84,11 +84,11 @@ button { font: inherit; }
 /* Celular e tablet: foto em cima, texto embaixo (o texto nunca fica sobre o rosto) */
 .hero-photo { display: block; position: relative; }
 .hero-photo img {
-  display: block; width: 100%; height: 46svh; min-height: 17rem; max-height: 30rem; object-fit: cover; object-position: 50% 18%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent); mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  display: block; width: 100%; height: 52svh; min-height: 18rem; max-height: 34rem; object-fit: cover; object-position: 50% 18%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent);
 }
 @media (min-width: 600px) and (max-width: 1023px) { .hero-photo img { max-width: 34rem; margin: 0 auto; border-radius: 0 0 1rem 1rem; } }
-.hero-inner { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: -1.75rem; padding-block: 0 2rem; }
+.hero-inner { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: 0; padding-block: 1.5rem 2.25rem; }
 .hero-copy { max-width: 36rem; text-align: center; }
 .hero-brand { margin-bottom: .6rem; font-size: .75rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--hero-muted); }
 .hero h1 { font-size: clamp(2.05rem, 8.6vw, 3.2rem); line-height: 1.05; color: var(--hero-fg); }
@@ -115,7 +115,7 @@ button { font: inherit; }
 
 /* MARQUEE */
 .marquee { position: relative; z-index: 1; border-block: 1px solid var(--border); background: var(--secondary); padding-block: .75rem; overflow: hidden; display: flex; }
-.marquee-track { display: flex; flex: none; align-items: center; gap: 2rem; padding-right: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+.marquee-track { display: flex; flex: none; align-items: center; gap: 2rem; padding-right: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; will-change: transform; -webkit-transform: translateZ(0); }
 .marquee span { display: inline-flex; align-items: center; gap: 2rem; font-size: .75rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--muted-fg); }
 .marquee b { color: var(--accent); font-weight: 400; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -518,7 +518,7 @@ src="https://www.facebook.com/tr?id=1385956953305576&ev=PageView&noscript=1"
       <p class="hero-sub">Tatuagens autorais em Fine Line, Mini Realismo e Pet, criadas para transformar suas ideias, memórias e sentimentos em arte única.</p>
     </div>
   </div>
-  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"><span>HISTÓRIAS <b>•</b></span><span>SENTIMENTOS <b>•</b></span><span>MEMÓRIAS <b>•</b></span><span>ESSÊNCIA <b>•</b></span><span>SIGNIFICADO <b>•</b></span><span>EXCLUSIVIDADE <b>•</b></span><span>AUTENTICIDADE <b>•</b></span><span>HISTÓRIAS <b>•</b></span><span>SENTIMENTOS <b>•</b></span><span>MEMÓRIAS <b>•</b></span><span>ESSÊNCIA <b>•</b></span><span>SIGNIFICADO <b>•</b></span><span>EXCLUSIVIDADE <b>•</b></span><span>AUTENTICIDADE <b>•</b></span><span>HISTÓRIAS <b>•</b></span><span>SENTIMENTOS <b>•</b></span><span>MEMÓRIAS <b>•</b></span><span>ESSÊNCIA <b>•</b></span><span>SIGNIFICADO <b>•</b></span><span>EXCLUSIVIDADE <b>•</b></span><span>AUTENTICIDADE <b>•</b></span><span>HISTÓRIAS <b>•</b></span><span>SENTIMENTOS <b>•</b></span><span>MEMÓRIAS <b>•</b></span><span>ESSÊNCIA <b>•</b></span><span>SIGNIFICADO <b>•</b></span><span>EXCLUSIVIDADE <b>•</b></span><span>AUTENTICIDADE <b>•</b></span></div></div>
 </header>
 
 <main>
@@ -747,8 +747,6 @@ function media(src, alt, motivo, lazy = true, sizes = "") {
 })();
 
 /* Letreiro */
-const words = [...site.marquee, ...site.marquee, ...site.marquee, ...site.marquee];
-$("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("");
 
 /* Estilos: carrossel contínuo, pausa no hover, arrasto e setas */
 (function () {
