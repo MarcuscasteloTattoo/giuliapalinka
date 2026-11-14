@@ -68,8 +68,11 @@ button { font: inherit; }
   padding-left: max(24px, env(safe-area-inset-left, 0px));
   padding-right: max(24px, env(safe-area-inset-right, 0px));
 }
-.section { padding-block: 4rem; }
-@media (min-width: 768px) { .section { padding-block: 6rem; } }
+.section { padding-block: 3rem; }
+@media (min-width: 768px) { .section { padding-block: 5rem; } }
+/* Estilos e Trabalhos recentes têm o mesmo fundo: sem espaço dobrado entre eles */
+.band-card + #portfolio { padding-top: .5rem; }
+@media (min-width: 768px) { .band-card + #portfolio { padding-top: 1.5rem; } }
 .h2 { font-size: 1.875rem; line-height: 1.15; text-align: center; }
 @media (min-width: 768px) { .h2 { font-size: 2.25rem; } }
 .lead { font-size: .875rem; color: var(--muted-fg); text-align: center; margin: 1rem auto 0; max-width: 28rem; line-height: 1.6; }
@@ -652,12 +655,10 @@ const site = {
     { src: "assets/tatuagem-04.webp", alt: "Lírios com folhas em traço fino no braço" },
     { src: "assets/tatuagem-05.webp", alt: "Duas garças em voo diante da lua, em pontilhismo" },
     { src: "assets/tatuagem-06.webp", alt: "Ramo de orquídeas em traço fino na perna" },
-    { src: "assets/tatuagem-07.webp", alt: "Dois medalhões de coração com retratos de cachorros, presos por um laço" },
     { src: "assets/tatuagem-08.webp", alt: "Dois peixes carpa em yin-yang no antebraço" },
     { src: "assets/tatuagem-09.webp", alt: "Andorinha em voo com sombreado no braço" },
     { src: "assets/tatuagem-10.webp", alt: "Mariposa com asas detalhadas no antebraço" },
     { src: "assets/tatuagem-11.webp", alt: "Olho com raios, lua crescente e estrela em fine line" },
-    { src: "assets/tatuagem-12.webp", alt: "Mariposa delicada abaixo do joelho" },
   ],
   investimentos: ["Até R$ 300", "De R$ 300 a R$ 600", "De R$ 600 a R$ 1.000", "De R$ 1.000 a R$ 1.500", "Acima de R$ 1.500"],
   locais: ["Braço", "Antebraço", "Perna", "Costas", "Peito", "Barriga", "Outros"],
