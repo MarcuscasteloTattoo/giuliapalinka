@@ -125,6 +125,8 @@ button { font: inherit; }
 .styles-copy { display: flex; }
 .style-card { width: 15rem; flex: none; padding-right: 1.5rem; }
 @media (min-width: 640px) { .style-card { width: 19rem; } }
+.style-card .ph { aspect-ratio: 3 / 4; }
+.style-card .ph img { object-position: 50% 50%; }
 .style-card h3 { margin-top: 1.25rem; font-size: 1.25rem; }
 .style-card p { margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: var(--muted-fg); }
 .style-card a { display: inline-block; margin-top: .75rem; font-size: .8rem; font-weight: 500; color: var(--accent); text-underline-offset: 4px; }
@@ -638,7 +640,7 @@ const site = {
   },
   marquee: ["HISTÓRIAS", "SENTIMENTOS", "MEMÓRIAS", "ESSÊNCIA", "SIGNIFICADO", "EXCLUSIVIDADE", "AUTENTICIDADE"],
   estilos: [
-    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-gp-concept.webp", alt: "Braço em fine line com busto de escultura grega e caveira, fases da lua, espiral áurea e a palavra Perspective" },
+    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-gp-concept-braco.webp", alt: "Fechamento de braço inteiro em fine line com busto de escultura grega e caveira, fases da lua, espiral áurea, mãos da Criação, DNA e a palavra Family" },
     { titulo: "Mini realismo", texto: "Retratos e cenas em escala reduzida, com riqueza de detalhes e sombreado delicado.", form: "Mini realismo", imagem: "assets/estilo-gp-realismo.webp", alt: "Retrato em mini realismo de um homem de chapéu com um pássaro na mão, dentro de uma moldura" },
     { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", form: "Pets", imagem: "assets/estilo-gp-pets.webp", alt: "Retrato de cachorro com a língua para fora e a plaquinha com o nome Bolt, no antebraço" },
     { titulo: "Delicadas", texto: "Traços leves e minimalistas, pensados para acompanhar o corpo com suavidade.", form: "Delicadas", imagem: "assets/estilo-gp-delicadas.webp", alt: "Dois medalhões de coração abertos com retratos de gatos, presos por uma fita" },
