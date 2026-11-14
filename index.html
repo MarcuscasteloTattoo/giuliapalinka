@@ -350,6 +350,13 @@ footer { border-top-color: rgba(206, 101, 6, .4); }
 
 /* FORMULÁRIO EM ETAPAS (uma pergunta por vez) */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.q-precos { margin-top: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid var(--border); }
+.q-precos > div { padding: 1.1rem .75rem; display: grid; grid-template-rows: 1fr auto auto; gap: .15rem; text-align: center; }
+.q-precos > div + div { border-left: 1px solid var(--border); }
+.q-precos span { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-fg); }
+.q-precos small { margin-top: .35rem; font-size: .8rem; color: var(--muted-fg); }
+.q-precos strong { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.9rem, 8vw, 2.4rem); line-height: 1; color: var(--laranja); white-space: nowrap; }
+.q-precos-nota { margin-top: .85rem; font-size: .85rem; line-height: 1.6; color: var(--muted-fg); text-align: center; }
 .quiz { margin-top: 2.25rem; display: block; }
 .q-progress { margin-bottom: 1.75rem; }
 .q-progress-top { display: flex; justify-content: space-between; font-size: .75rem; letter-spacing: .24em; text-transform: uppercase; color: var(--laranja); margin-bottom: .6rem; }
@@ -518,7 +525,12 @@ src="https://www.facebook.com/tr?id=1431607248384524&ev=PageView&noscript=1"
     <div class="wrap section">
       <div class="form-wrap">
         <h2 class="h2">Faça seu orçamento</h2>
-        <p class="lead" style="max-width:none">Preencha rapidinho e continue a conversa pelo WhatsApp com tudo já organizado.</p>
+        <p class="lead" style="max-width:none">Responda algumas perguntas rápidas e continue a conversa pelo WhatsApp com tudo já organizado.</p>
+        <div class="q-precos">
+          <div><span>Minha sessão</span><small>a partir de</small><strong>R$ 650</strong></div>
+          <div><span>Trabalhos menores</span><small>a partir de</small><strong>R$ 250</strong></div>
+        </div>
+        <p class="q-precos-nota">O valor final de cada projeto sempre depende de quantas sessões ele vai levar.</p>
         <form id="quote-form" class="quiz" novalidate>
           <input type="text" name="website" id="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input type="hidden" id="estilo" name="estilo">
@@ -622,10 +634,10 @@ const site = {
   },
   marquee: ["HISTÓRIAS", "SENTIMENTOS", "MEMÓRIAS", "ESSÊNCIA", "SIGNIFICADO", "EXCLUSIVIDADE", "AUTENTICIDADE"],
   estilos: [
-    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-fineline-concept.webp", alt: "Fechamento de braço em fine line com escultura, bússola, geometria sagrada e a frase Memento Mori Memento Vivere" },
+    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-gp-concept.webp", alt: "Fechamento de braço em fine line com escultura, bússola, geometria sagrada e a frase Memento Mori Memento Vivere" },
     { titulo: "Florais e botânicas", texto: "Flores e folhagens em traços finos que acompanham as curvas do corpo com leveza.", form: "Florais e botânicas", imagem: "assets/estilo-florais-botanicas.webp", alt: "Flor com efeito de transparência e folhas em pontilhismo no antebraço" },
-    { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", form: "Pets", imagem: "assets/estilo-pets.webp", alt: "Retrato de gato com coleira e plaquinha com o nome Tony, ao lado de uma espiga de milho, no antebraço" },
-    { titulo: "Delicadas", texto: "Traços leves e minimalistas, pensados para acompanhar o corpo com suavidade.", form: "Delicadas", imagem: "assets/estilo-delicadas.webp", alt: "Lírio em traço fino com linhas fluidas ao longo da coluna" },
+    { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", form: "Pets", imagem: "assets/estilo-gp-pets.webp", alt: "Retrato de gato com coleira e plaquinha com o nome Tony, ao lado de uma espiga de milho, no antebraço" },
+    { titulo: "Delicadas", texto: "Traços leves e minimalistas, pensados para acompanhar o corpo com suavidade.", form: "Delicadas", imagem: "assets/estilo-gp-delicadas.webp", alt: "Lírio em traço fino com linhas fluidas ao longo da coluna" },
   ],
   portfolio: [
     { src: "assets/tatuagem-01.webp", alt: "Composição em fine line na lateral do corpo com rostos femininos, árvore da vida, sol e ramos florais" },
