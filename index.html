@@ -1053,6 +1053,33 @@ $("marquee").innerHTML = words.map((w) => `<span>${w} <b>•</b></span>`).join("
 })();
 
 $("year").textContent = new Date().getFullYear();
+
+/* ROLAGEM AUTOMÁTICA SUAVE
+   Se a pessoa ficar 40 s parada no topo sem mexer na página, a página desce sozinha bem devagar
+   (como alguém puxando com o dedo) até o fim. Para na hora em que a pessoa toca, rola, clica ou
+   usa o teclado, e não volta mais. Não roda para quem pede menos movimento no sistema. */
+(function () {
+  const ESPERA_MS = 40000, VELOCIDADE = 42; /* pixels por segundo */
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let mexeu = false, rodando = false, ultimo = 0, pos = 0;
+  const parar = () => { mexeu = true; rodando = false; };
+  ["wheel", "touchstart", "pointerdown", "keydown"].forEach((ev) => window.addEventListener(ev, parar, { passive: true, capture: true }));
+  function passo(ts) {
+    if (!rodando) return;
+    if (document.hidden) { ultimo = ts; requestAnimationFrame(passo); return; }
+    const dt = Math.min((ts - ultimo) / 1000, 0.1); ultimo = ts;
+    const fim = document.documentElement.scrollHeight - innerHeight;
+    pos = Math.min(fim, pos + VELOCIDADE * dt);
+    window.scrollTo({ top: pos, behavior: "instant" });
+    if (pos >= fim - 1) { rodando = false; return; }
+    requestAnimationFrame(passo);
+  }
+  setTimeout(() => {
+    if (mexeu || window.scrollY > 80 || !$("lightbox").hidden) return; /* só para quem ficou parado no início */
+    rodando = true; pos = window.scrollY; ultimo = performance.now();
+    requestAnimationFrame(passo);
+  }, ESPERA_MS);
+})();
 </script>
 
 </body>
