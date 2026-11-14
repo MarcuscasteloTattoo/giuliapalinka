@@ -405,6 +405,23 @@ footer { border-top-color: rgba(206, 101, 6, .4); }
 @media (max-width: 480px) { .q-nav { flex-wrap: wrap; } .q-nav .q-submit { flex: 1 1 100%; order: -1; } }
 @media (prefers-reduced-motion: reduce) { .q-step.q-in { animation: none; } .q-bar span { transition: none; } }
 
+/* ENTRADA DO BANNER — sutil, rápida (~1,3 s) e só uma vez */
+@keyframes hero-letra { from { opacity: 0; filter: blur(6px); transform: translateY(.35em); } to { opacity: 1; filter: blur(0); transform: none; } }
+@keyframes hero-tracking { from { letter-spacing: .6em; } to { letter-spacing: .32em; } }
+@keyframes hero-palavra { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes hero-sobe { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes hero-linha { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes hero-zoom { from { transform: scale(1.06); } to { transform: none; } }
+.hero-anim .hero-brand { animation: hero-tracking 1.1s cubic-bezier(.2, .7, .2, 1) both; }
+.hero-anim .hero-brand .ch { display: inline-block; animation: hero-letra .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i) * 28ms); }
+.hero-anim .hero-brand .sp { width: .3em; }
+.hero-anim h1 .wd { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+.hero-anim h1 .wd > span { display: inline-block; animation: hero-palavra .8s cubic-bezier(.16, .84, .3, 1) both; animation-delay: calc(.35s + var(--i) * 70ms); }
+.hero-anim .hero-copy::before { transform-origin: center; animation: hero-linha .7s cubic-bezier(.2, .7, .2, 1) .15s both; }
+@media (min-width: 1024px) { .hero-anim .hero-copy::before { transform-origin: left; } }
+.hero-anim .hero-sub { animation: hero-sobe .8s cubic-bezier(.2, .7, .2, 1) .75s both; }
+.hero-anim .hero-photo img { animation: hero-zoom 1.8s cubic-bezier(.2, .7, .2, 1) both; }
+
 /* AJUSTES DE CELULAR */
 /* Carrossel de estilos: bordas esmaecidas para os cards cortados não mostrarem texto pela metade */
 .styles-viewport { -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
@@ -479,6 +496,25 @@ src="https://www.facebook.com/tr?id=1385956953305576&ev=PageView&noscript=1"
     <div class="hero-copy">
       <p class="hero-brand">Giulia Palinka Tattoo</p>
       <h1>Traços delicados, histórias únicas.</h1>
+      <script>
+      /* Animação de entrada do banner: divide o nome em letras e o título em palavras antes da primeira pintura (sem piscar) */
+      (function () {
+        if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var hero = document.currentScript.closest(".hero"); hero.classList.add("hero-anim");
+        function dividir(el, porLetra) {
+          var t = el.textContent; el.setAttribute("aria-label", t);
+          var partes = porLetra ? Array.from(t) : t.split(" "), i = 0;
+          el.innerHTML = partes.map(function (p, k) {
+            if (porLetra && p === " ") return '<span class="ch sp" aria-hidden="true"> </span>';
+            var html = porLetra ? '<span class="ch" aria-hidden="true" style="--i:' + (i++) + '">' + p + '</span>'
+                                : '<span class="wd" aria-hidden="true"><span style="--i:' + (i++) + '">' + p + '</span></span>';
+            return html + (!porLetra && k < partes.length - 1 ? " " : "");
+          }).join("");
+        }
+        dividir(hero.querySelector(".hero-brand"), true);
+        dividir(hero.querySelector("h1"), false);
+      })();
+      </script>
       <p class="hero-sub">Tatuagens autorais em Fine Line, Mini Realismo e Pet, criadas para transformar suas ideias, memórias e sentimentos em arte única.</p>
     </div>
   </div>
