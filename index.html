@@ -153,6 +153,8 @@ button { font: inherit; }
 /* PORTFÓLIO */
 .grid-pf { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
 @media (min-width: 768px) { .grid-pf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; } }
+/* celular: se sobrar uma foto sozinha na última linha, ela fica centralizada */
+@media (max-width: 767px) { .grid-pf > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - .375rem); } }
 .pf-item { padding: 0; border: 0; background: none; border-radius: .75rem; overflow: hidden; cursor: zoom-in; display: block; }
 .pf-item .ph { border-radius: .75rem; transition: transform .3s ease; }
 .pf-item:hover .ph { transform: scale(1.04); }
@@ -679,14 +681,14 @@ const site = {
   },
   marquee: ["HISTÓRIAS", "SENTIMENTOS", "MEMÓRIAS", "ESSÊNCIA", "SIGNIFICADO", "EXCLUSIVIDADE", "AUTENTICIDADE"],
   estilos: [
-    { titulo: "Fineline | Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira em traço fino.", form: "Fineline | Concept tattoo", imagem: "assets/estilo-gp-concept-braco.webp", alt: "Fechamento de braço inteiro em fine line com busto de escultura grega e caveira, fases da lua, espiral áurea, mãos da Criação, DNA e a palavra Family" },
+    { titulo: "Concept tattoo", texto: "Composições autorais que unem figuras, símbolos, frases e geometria para contar uma história inteira.", form: "Concept tattoo", imagem: "assets/estilo-gp-concept-saturno.webp", alt: "Concept tattoo no ombro com Saturno, lua, sol, ramos e pequenos símbolos" },
+    { titulo: "Fineline", texto: "Traços finos e precisos, do minimalista ao detalhado, que acompanham o corpo com leveza.", form: "Fineline", imagem: "assets/estilo-gp-concept-braco.webp", alt: "Fechamento de braço inteiro em fine line com busto de escultura grega e caveira, fases da lua, espiral áurea, mãos da Criação, DNA e a palavra Family" },
     { titulo: "Realismo", texto: "Retratos e cenas com profundidade, luz e sombra, para eternizar pessoas e momentos marcantes.", form: "Realismo", imagem: "assets/estilo-gp-realismo.webp", alt: "Retrato realista de um homem de chapéu com um pássaro na mão, dentro de uma moldura" },
     { titulo: "Pets", texto: "Pra quem deseja eternizar o amor incondicional de um companheiro fiel.", form: "Pets", imagem: "assets/estilo-gp-pets.webp", alt: "Retrato de cachorro com a língua para fora e a plaquinha com o nome Bolt, no antebraço" },
     { titulo: "Mini realismo", texto: "Retratos e cenas em escala reduzida, com riqueza de detalhes e sombreado delicado.", form: "Mini realismo", imagem: "assets/estilo-gp-delicadas.webp", alt: "Mini realismo: dois medalhões de coração abertos com retratos de gatos, presos por uma fita" },
   ],
   portfolio: [
     { src: "assets/tatuagem-01.webp", alt: "Composição em fine line na lateral do corpo com rostos femininos, árvore da vida, sol e ramos florais" },
-    { src: "assets/tatuagem-02.webp", alt: "Ombro com Saturno, lua, sol, ramos e pequenos símbolos em traço fino" },
     { src: "assets/tatuagem-03.webp", alt: "Retrato de pet com orquídeas, lírios, o nome Amora e data, na perna" },
     { src: "assets/tatuagem-04.webp", alt: "Lírios com folhas em traço fino no braço" },
     { src: "assets/tatuagem-05.webp", alt: "Duas garças em voo diante da lua, em pontilhismo" },
@@ -698,7 +700,7 @@ const site = {
   ],
   investimentos: ["Até R$ 300", "De R$ 300 a R$ 600", "De R$ 600 a R$ 1.000", "De R$ 1.000 a R$ 1.500", "Acima de R$ 1.500"],
   locais: ["Braço", "Antebraço", "Perna", "Costas", "Peito", "Barriga", "Outros"],
-  estilosForm: ["Fineline | Concept tattoo", "Realismo", "Mini realismo", "Pets", "Outros"],
+  estilosForm: ["Concept tattoo", "Fineline", "Realismo", "Mini realismo", "Pets", "Outros"],
   tamanhos: ["Abaixo de 5 cm", "De 5 a 10 cm", "De 10 a 15 cm", "De 15 a 20 cm", "Acima de 20 cm"],
 };
 
